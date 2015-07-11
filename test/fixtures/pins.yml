@@ -1,0 +1,50 @@
+# == Schema Information
+#
+# Table name: pins
+#
+#  id          :integer          not null, primary key
+#  user_id     :integer
+#  publication :datetime
+#  realization :datetime
+#  duration    :integer
+#  title       :string
+#  description :string
+#  price       :integer
+#  help_type   :integer
+#  faculty     :string
+#  latitude    :float
+#  longitude   :float
+#  course_id   :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  publication: 2015-07-11 16:23:25
+  realization: 2015-07-11 16:23:25
+  duration: 1
+  title: MyString
+  description: MyString
+  price: 1
+  help_type: 1
+  faculty: MyString
+  latitude: 1.5
+  longitude: 1.5
+  course_id: 
+
+two:
+  user_id: 
+  publication: 2015-07-11 16:23:25
+  realization: 2015-07-11 16:23:25
+  duration: 1
+  title: MyString
+  description: MyString
+  price: 1
+  help_type: 1
+  faculty: MyString
+  latitude: 1.5
+  longitude: 1.5
+  course_id: 
