@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BukitWeb</title>
+  <title>Bukit Web</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<% if flash[:alert] %>
+    <div class="bg-danger"><b>Alerta:</b> <%= flash[:alert] %></div>
+<% end %>
+<% if flash[:notice] %>
+    <div class="bg-info"><b>Notice:</b> <%= flash[:notice] %></div>
+<% end %>
+<% if flash[:error] %>
+    <div class="bg-danger"><b>Error:</b> <%= flash[:error] %></div>
+<% end %>
 
 <%= yield %>
 

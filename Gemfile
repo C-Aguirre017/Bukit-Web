@@ -26,6 +26,17 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #Gems Used
 gem 'annotate', '~> 2.6.6'
 
+gem 'devise'
+
+# Facebook Login
+gem 'omniauth-facebook'
+
+# Bootstrap
+gem 'twitter-bootstrap-rails'
+gem 'devise-bootstrap-views'
+gem 'rails_layout', '~> 1.0.24'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
