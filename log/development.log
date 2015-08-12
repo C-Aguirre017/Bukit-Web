@@ -1328,3 +1328,1397 @@ Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde45
 
 
 Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-07-13 00:05:28 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddOmniauthToUsers (20150812162836)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (9.2ms)[0m  [1mALTER TABLE "users" ADD "provider" varchar[0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.7ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_university_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_university_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  CREATE  INDEX "index_users_on_provider" ON "users" ("provider")
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "uid" varchar[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_provider' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_provider' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_university_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_university_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  CREATE  INDEX "index_users_on_uid" ON "users" ("uid")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150812162836"]]
+  [1m[35m (174.9ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_applications_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_applications_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_applications_on_pin_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_applications_on_pin_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_pins_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_pins_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_pins_on_course_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_pins_on_course_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_uid' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_uid' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_provider' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_provider' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_university_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_university_id' AND type='index'
+
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 13:33:02 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PageController#index as HTML
+Completed 401 Unauthorized in 208ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-08-12 13:33:03 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (28.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (90.4ms)
+Completed 500 Internal Server Error in 218ms (ActiveRecord: 0.5ms)
+
+ActionView::Template::Error (undefined method `omniauth_authorize_path' for #<#<Class:0x00000004cc5138>:0x007f5fa8757b28>):
+    20: 
+    21: <%- if devise_mapping.omniauthable? %>
+    22:   <%- resource_class.omniauth_providers.each do |provider| %>
+    23:     <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br />
+    24:   <% end -%>
+    25: <% end -%>
+  app/views/devise/shared/_links.html.erb:23:in `block in _app_views_devise_shared__links_html_erb___108270162188522908_70024413055060'
+  app/views/devise/shared/_links.html.erb:22:in `each'
+  app/views/devise/shared/_links.html.erb:22:in `_app_views_devise_shared__links_html_erb___108270162188522908_70024413055060'
+  app/views/devise/sessions/new.html.erb:26:in `_app_views_devise_sessions_new_html_erb__3494358002950496300_40170940'
+
+
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.7ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (23.9ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/console.js.erb within layouts/javascript (16.4ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/index.html.erb (35.9ms)
+  [1m[36m (133.1ms)[0m  [1mCREATE TABLE "applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "pin_id" integer, "user_id" integer, "reached" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (132.5ms)[0m  [1mCREATE  INDEX "index_applications_on_pin_id" ON "applications" ("pin_id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_applications_on_pin_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_applications_on_pin_id' AND type='index'
+
+  [1m[36m (144.2ms)[0m  [1mCREATE  INDEX "index_applications_on_user_id" ON "applications" ("user_id")[0m
+  [1m[35m (144.8ms)[0m  CREATE TABLE "courses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "initials" varchar, "branch" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (122.2ms)[0m  [1mCREATE TABLE "pins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "publication" datetime, "realization" datetime, "duration" integer, "title" varchar, "description" varchar, "price" integer, "help_type" integer, "faculty" varchar, "latitude" float, "longitude" float, "course_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (110.8ms)[0m  CREATE  INDEX "index_pins_on_course_id" ON "pins" ("course_id")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_pins_on_course_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_pins_on_course_id' AND type='index'
+[0m
+  [1m[35m (139.1ms)[0m  CREATE  INDEX "index_pins_on_user_id" ON "pins" ("user_id")
+  [1m[36m (166.5ms)[0m  [1mCREATE TABLE "universities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (152.1ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "profession" varchar, "role" integer, "phone" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "university_id" integer, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "provider" varchar, "uid" varchar) 
+  [1m[36m (122.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (110.9ms)[0m  [1mCREATE  INDEX "index_users_on_provider" ON "users" ("provider")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_provider' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_provider' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (121.8ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_provider' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_provider' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (131.5ms)[0m  CREATE  INDEX "index_users_on_uid" ON "users" ("uid")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_uid' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_uid' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_provider' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_provider' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (121.2ms)[0m  [1mCREATE  INDEX "index_users_on_university_id" ON "users" ("university_id")[0m
+  [1m[35m (143.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (155.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (146.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150812162836')[0m
+  [1m[35m (145.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150711192325')
+  [1m[36m (134.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150711190915')[0m
+  [1m[35m (111.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150711192912')
+  [1m[36m (111.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150711191624')[0m
+  [1m[35m (111.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150711193128')
+  [1m[36m (145.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150713015329')[0m
+  [1m[35m (123.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150711191344')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 14:15:32 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PageController#index as HTML
+Completed 401 Unauthorized in 14ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-08-12 14:15:32 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 496ms (Views: 479.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/applications.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-08-12 14:15:32 -0300
+
+
+Started GET "/assets/courses.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-08-12 14:15:32 -0300
+
+
+Started GET "/assets/page.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-08-12 14:15:32 -0300
+
+
+Started GET "/assets/pins.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-08-12 14:15:32 -0300
+
+
+Started GET "/assets/scaffolds.self-8584e6643c2ee0326253d6f8f8c7ddd399ccd8776160cf6694c6461b32137646.css?body=1" for 127.0.0.1 at 2015-08-12 14:15:32 -0300
+
+
+Started GET "/assets/universities.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-08-12 14:15:32 -0300
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-08-12 14:15:32 -0300
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-08-12 14:15:32 -0300
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-08-12 14:15:32 -0300
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for 127.0.0.1 at 2015-08-12 14:15:32 -0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-08-12 14:15:32 -0300
+
+
+Started GET "/assets/page.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-08-12 14:15:32 -0300
+
+
+Started GET "/assets/applications.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-08-12 14:15:32 -0300
+
+
+Started GET "/assets/courses.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-08-12 14:15:32 -0300
+
+
+Started GET "/assets/pins.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-08-12 14:15:32 -0300
+
+
+Started GET "/assets/universities.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-08-12 14:15:32 -0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-08-12 14:15:32 -0300
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-08-12 14:15:32 -0300
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-08-12 14:15:38 -0300
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-08-12 14:15:39 -0300
+
+
+Started GET "/users/auth/facebook/callback?error_code=1349048&error_message=Given+URL+is+not+allowed+by+the+Application+configuration%3A+One+or+more+of+the+given+URLs+is+not+allowed+by+the+App%27s+settings.++It+must+match+the+Website+URL+or+Canvas+URL%2C+or+the+domain+must+be+a+subdomain+of+one+of+the+App%27s+domains.&state=6bb2049b0dae0c18388e662030ece721f23fa834469b9446" for 127.0.0.1 at 2015-08-12 14:15:51 -0300
+Processing by Users::OmniauthCallbacksController#failure as HTML
+  Parameters: {"error_code"=>"1349048", "error_message"=>"Given URL is not allowed by the Application configuration: One or more of the given URLs is not allowed by the App's settings.  It must match the Website URL or Canvas URL, or the domain must be a subdomain of one of the App's domains.", "state"=>"6bb2049b0dae0c18388e662030ece721f23fa834469b9446"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-08-12 14:15:51 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 76ms (Views: 75.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2015-08-12 14:17:18 -0300
+Processing by Devise::PasswordsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/passwords/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 93ms (Views: 92.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-08-12 14:17:23 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 113ms (Views: 110.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-08-12 14:17:45 -0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vCgKnqLS0JouTq4U/hQXU74aFZ4ExAq7oPAAp9w/C4pl/A6qdHR4MAQBVacBzX2pJeO85XEnGDq+H4x3JF2SMg==", "user"=>{"name"=>"Carlos", "profession"=>"Arquitecto", "phone"=>"123", "email"=>"c.aguirre017@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameters: name, profession, phone
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'c.aguirre017@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "c.aguirre017@gmail.com"], ["encrypted_password", "$2a$10$OntmK85lVpNb3y.dBvYVi.r9ATTExKKjowqKtxYywAww7.fYB5.HK"], ["created_at", "2015-08-12 17:17:45.956897"], ["updated_at", "2015-08-12 17:17:45.956897"]]
+  [1m[36m (138.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-08-12 17:17:46.098345"], ["current_sign_in_at", "2015-08-12 17:17:46.098345"], ["last_sign_in_ip", "127.0.0.1"], ["current_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2015-08-12 17:17:46.099838"], ["id", 1]]
+  [1m[35m (151.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 473ms (ActiveRecord: 290.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 14:17:46 -0300
+Processing by PageController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered page/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 62ms (Views: 60.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-08-12 14:17:52 -0300
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 111ms (Views: 109.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 14:18:10 -0300
+Processing by PageController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered page/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 56ms (Views: 54.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2015-08-12 14:18:16 -0300
+
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.0) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/carlos/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/carlos/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/carlos/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.8ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (19.6ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (135.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/console.js.erb within layouts/javascript (11.8ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/index.html.erb (24.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 14:20:10 -0300
+Processing by PageController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered page/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 45ms (Views: 43.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 14:20:17 -0300
+Processing by PageController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered page/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 49ms (Views: 47.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 14:20:22 -0300
+Processing by PageController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered page/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 52ms (Views: 50.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/use" for 127.0.0.1 at 2015-08-12 14:20:27 -0300
+
+ActionController::RoutingError (No route matches [GET] "/use"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.0) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/carlos/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/carlos/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/carlos/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.7ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (28.7ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/console.js.erb within layouts/javascript (12.1ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/index.html.erb (24.4ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2015-08-12 14:20:41 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 0]]
+Completed 404 Not Found in 77ms (ActiveRecord: 0.4ms)
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=sign_out):
+  app/controllers/users_controller.rb:67:in `set_user'
+
+
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (16.8ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/console.js.erb within layouts/javascript (12.5ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/index.html.erb (25.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 14:20:53 -0300
+Processing by PageController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered page/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 52ms (Views: 50.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/user" for 127.0.0.1 at 2015-08-12 14:21:33 -0300
+
+ActionController::RoutingError (No route matches [GET] "/user"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.0) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/carlos/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/carlos/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/carlos/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (28.8ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/console.js.erb within layouts/javascript (12.8ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/index.html.erb (25.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 14:22:10 -0300
+Processing by PageController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered page/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 48ms (Views: 46.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2015-08-12 14:22:12 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 0]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=sign_out):
+  app/controllers/users_controller.rb:67:in `set_user'
+
+
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (16.6ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/console.js.erb within layouts/javascript (12.0ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/index.html.erb (24.3ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2015-08-12 14:22:12 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 0]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=sign_out):
+  app/controllers/users_controller.rb:67:in `set_user'
+
+
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.4ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (16.1ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/console.js.erb within layouts/javascript (12.6ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/index.html.erb (25.4ms)
+
+
+Started GET "/users/si" for 127.0.0.1 at 2015-08-12 14:23:13 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"si"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 0]]
+Completed 404 Not Found in 3ms (ActiveRecord: 0.2ms)
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=si):
+  app/controllers/users_controller.rb:67:in `set_user'
+
+
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (17.5ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/console.js.erb within layouts/javascript (12.5ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/index.html.erb (24.2ms)
+
+
+Started GET "/use" for 127.0.0.1 at 2015-08-12 14:23:17 -0300
+
+ActionController::RoutingError (No route matches [GET] "/use"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.0) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/carlos/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/carlos/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/carlos/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.5ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (29.0ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/console.js.erb within layouts/javascript (11.9ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/index.html.erb (24.5ms)
+  [1m[36mUser Load (4.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 1]]
+  [1m[36m (169.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 14:27:49 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PageController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 401 Unauthorized in 24ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-08-12 14:27:49 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 168ms (Views: 157.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-08-12 14:27:52 -0300
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-08-12 14:27:52 -0300
+
+
+Started GET "/users/auth/facebook/callback?error_code=1349048&error_message=Given+URL+is+not+allowed+by+the+Application+configuration%3A+One+or+more+of+the+given+URLs+is+not+allowed+by+the+App%27s+settings.++It+must+match+the+Website+URL+or+Canvas+URL%2C+or+the+domain+must+be+a+subdomain+of+one+of+the+App%27s+domains.&state=1e8a22e3f8d1c2b35deecf09d03d0b61fb0ca02eef268fcf" for 127.0.0.1 at 2015-08-12 14:28:43 -0300
+Processing by Users::OmniauthCallbacksController#failure as HTML
+  Parameters: {"error_code"=>"1349048", "error_message"=>"Given URL is not allowed by the Application configuration: One or more of the given URLs is not allowed by the App's settings.  It must match the Website URL or Canvas URL, or the domain must be a subdomain of one of the App's domains.", "state"=>"1e8a22e3f8d1c2b35deecf09d03d0b61fb0ca02eef268fcf"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-08-12 14:28:43 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 52ms (Views: 51.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-08-12 14:29:48 -0300
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-08-12 14:29:48 -0300
+
+
+Started GET "/users/auth/facebook/callback?error_code=1349048&error_message=Given+URL+is+not+allowed+by+the+Application+configuration%3A+One+or+more+of+the+given+URLs+is+not+allowed+by+the+App%27s+settings.++It+must+match+the+Website+URL+or+Canvas+URL%2C+or+the+domain+must+be+a+subdomain+of+one+of+the+App%27s+domains.&state=fcb25f896f4b19937e09b314b52a804bdfaa7881f551096e" for 127.0.0.1 at 2015-08-12 14:29:50 -0300
+Processing by Users::OmniauthCallbacksController#failure as HTML
+  Parameters: {"error_code"=>"1349048", "error_message"=>"Given URL is not allowed by the Application configuration: One or more of the given URLs is not allowed by the App's settings.  It must match the Website URL or Canvas URL, or the domain must be a subdomain of one of the App's domains.", "state"=>"fcb25f896f4b19937e09b314b52a804bdfaa7881f551096e"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-08-12 14:29:51 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 58ms (Views: 57.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-08-12 14:30:05 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 77ms (Views: 75.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/applications.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-08-12 14:30:05 -0300
+
+
+Started GET "/assets/courses.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-08-12 14:30:05 -0300
+
+
+Started GET "/assets/pins.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-08-12 14:30:05 -0300
+
+
+Started GET "/assets/universities.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-08-12 14:30:05 -0300
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-08-12 14:30:05 -0300
+
+
+Started GET "/assets/scaffolds.self-8584e6643c2ee0326253d6f8f8c7ddd399ccd8776160cf6694c6461b32137646.css?body=1" for 127.0.0.1 at 2015-08-12 14:30:05 -0300
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-08-12 14:30:05 -0300
+
+
+Started GET "/assets/page.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-08-12 14:30:05 -0300
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-08-12 14:30:05 -0300
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for 127.0.0.1 at 2015-08-12 14:30:05 -0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-08-12 14:30:05 -0300
+
+
+Started GET "/assets/applications.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-08-12 14:30:05 -0300
+
+
+Started GET "/assets/courses.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-08-12 14:30:05 -0300
+
+
+Started GET "/assets/page.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-08-12 14:30:05 -0300
+
+
+Started GET "/assets/pins.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-08-12 14:30:05 -0300
+
+
+Started GET "/assets/universities.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-08-12 14:30:05 -0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-08-12 14:30:05 -0300
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-08-12 14:30:05 -0300
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-08-12 14:30:06 -0300
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-08-12 14:30:06 -0300
+
+
+Started GET "/users/auth/facebook/callback?error_code=1349048&error_message=Given+URL+is+not+allowed+by+the+Application+configuration%3A+One+or+more+of+the+given+URLs+is+not+allowed+by+the+App%27s+settings.++It+must+match+the+Website+URL+or+Canvas+URL%2C+or+the+domain+must+be+a+subdomain+of+one+of+the+App%27s+domains.&state=2697b04079ee519fb7b0c4f93bd62c737eaf77e9e79f15ff" for 127.0.0.1 at 2015-08-12 14:30:09 -0300
+Processing by Users::OmniauthCallbacksController#failure as HTML
+  Parameters: {"error_code"=>"1349048", "error_message"=>"Given URL is not allowed by the Application configuration: One or more of the given URLs is not allowed by the App's settings.  It must match the Website URL or Canvas URL, or the domain must be a subdomain of one of the App's domains.", "state"=>"2697b04079ee519fb7b0c4f93bd62c737eaf77e9e79f15ff"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-08-12 14:30:09 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 52ms (Views: 50.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 17:52:55 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PageController#index as HTML
+Completed 401 Unauthorized in 17ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-08-12 17:52:55 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 204ms (Views: 187.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 17:52:55 -0300
+Processing by PageController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-08-12 17:52:55 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 52ms (Views: 51.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-08-12 17:52:57 -0300
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-08-12 17:52:58 -0300
+
+
+Started GET "/users/auth/facebook/callback?error_code=1349048&error_message=Given+URL+is+not+allowed+by+the+Application+configuration%3A+One+or+more+of+the+given+URLs+is+not+allowed+by+the+App%27s+settings.++It+must+match+the+Website+URL+or+Canvas+URL%2C+or+the+domain+must+be+a+subdomain+of+one+of+the+App%27s+domains.&state=cabd50150ba2aa34a5ff5a3b1194b293962f61b2aae9fd9c" for 127.0.0.1 at 2015-08-12 17:53:00 -0300
+Processing by Users::OmniauthCallbacksController#failure as HTML
+  Parameters: {"error_code"=>"1349048", "error_message"=>"Given URL is not allowed by the Application configuration: One or more of the given URLs is not allowed by the App's settings.  It must match the Website URL or Canvas URL, or the domain must be a subdomain of one of the App's domains.", "state"=>"cabd50150ba2aa34a5ff5a3b1194b293962f61b2aae9fd9c"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-08-12 17:53:00 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 63ms (Views: 61.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-08-12 17:53:27 -0300
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-08-12 17:53:27 -0300
+
+
+Started GET "/users/auth/facebook/callback?error_code=1349048&error_message=Given+URL+is+not+allowed+by+the+Application+configuration%3A+One+or+more+of+the+given+URLs+is+not+allowed+by+the+App%27s+settings.++It+must+match+the+Website+URL+or+Canvas+URL%2C+or+the+domain+must+be+a+subdomain+of+one+of+the+App%27s+domains.&state=257723428f31efb96445d544ec4705fdd62893820822524c" for 127.0.0.1 at 2015-08-12 17:53:29 -0300
+Processing by Users::OmniauthCallbacksController#failure as HTML
+  Parameters: {"error_code"=>"1349048", "error_message"=>"Given URL is not allowed by the Application configuration: One or more of the given URLs is not allowed by the App's settings.  It must match the Website URL or Canvas URL, or the domain must be a subdomain of one of the App's domains.", "state"=>"257723428f31efb96445d544ec4705fdd62893820822524c"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-08-12 17:53:29 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 94ms (Views: 92.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-08-12 17:53:58 -0300
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-08-12 17:53:58 -0300
+
+
+Started GET "/users/auth/facebook/callback?error_code=1349048&error_message=Given+URL+is+not+allowed+by+the+Application+configuration%3A+One+or+more+of+the+given+URLs+is+not+allowed+by+the+App%27s+settings.++It+must+match+the+Website+URL+or+Canvas+URL%2C+or+the+domain+must+be+a+subdomain+of+one+of+the+App%27s+domains.&state=ab5b894ee53cb20da851dba735e3d25cff0d3fb492ae868f" for 127.0.0.1 at 2015-08-12 17:54:00 -0300
+Processing by Users::OmniauthCallbacksController#failure as HTML
+  Parameters: {"error_code"=>"1349048", "error_message"=>"Given URL is not allowed by the Application configuration: One or more of the given URLs is not allowed by the App's settings.  It must match the Website URL or Canvas URL, or the domain must be a subdomain of one of the App's domains.", "state"=>"ab5b894ee53cb20da851dba735e3d25cff0d3fb492ae868f"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-08-12 17:54:00 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 68ms (Views: 66.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-08-12 17:54:13 -0300
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-08-12 17:54:13 -0300
+
+
+Started GET "/users/auth/facebook/callback?error_code=1349048&error_message=Given+URL+is+not+allowed+by+the+Application+configuration%3A+One+or+more+of+the+given+URLs+is+not+allowed+by+the+App%27s+settings.++It+must+match+the+Website+URL+or+Canvas+URL%2C+or+the+domain+must+be+a+subdomain+of+one+of+the+App%27s+domains.&state=a1dff8a04ea0b3556deeca482705cf5b81536637178600af" for 127.0.0.1 at 2015-08-12 17:54:15 -0300
+Processing by Users::OmniauthCallbacksController#failure as HTML
+  Parameters: {"error_code"=>"1349048", "error_message"=>"Given URL is not allowed by the Application configuration: One or more of the given URLs is not allowed by the App's settings.  It must match the Website URL or Canvas URL, or the domain must be a subdomain of one of the App's domains.", "state"=>"a1dff8a04ea0b3556deeca482705cf5b81536637178600af"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-08-12 17:54:15 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 51ms (Views: 49.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-08-12 17:55:56 -0300
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-08-12 17:55:57 -0300
+
+
+Started GET "/users/auth/facebook/callback?error_code=1349048&error_message=Given+URL+is+not+allowed+by+the+Application+configuration%3A+One+or+more+of+the+given+URLs+is+not+allowed+by+the+App%27s+settings.++It+must+match+the+Website+URL+or+Canvas+URL%2C+or+the+domain+must+be+a+subdomain+of+one+of+the+App%27s+domains.&state=a85e1d2f0af02c8dee83c3ccd06f8442f06ce6e79401ed2c" for 127.0.0.1 at 2015-08-12 17:55:58 -0300
+Processing by Users::OmniauthCallbacksController#failure as HTML
+  Parameters: {"error_code"=>"1349048", "error_message"=>"Given URL is not allowed by the Application configuration: One or more of the given URLs is not allowed by the App's settings.  It must match the Website URL or Canvas URL, or the domain must be a subdomain of one of the App's domains.", "state"=>"a85e1d2f0af02c8dee83c3ccd06f8442f06ce6e79401ed2c"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-08-12 17:55:58 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 60ms (Views: 59.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-08-12 17:57:13 -0300
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-08-12 17:57:14 -0300
+
+
+Started GET "/users/auth/facebook/callback?error_code=1349048&error_message=Given+URL+is+not+allowed+by+the+Application+configuration%3A+One+or+more+of+the+given+URLs+is+not+allowed+by+the+App%27s+settings.++It+must+match+the+Website+URL+or+Canvas+URL%2C+or+the+domain+must+be+a+subdomain+of+one+of+the+App%27s+domains.&state=b16b8795ff04379b9d7569fa572178520cde5343e416fd08" for 127.0.0.1 at 2015-08-12 17:57:15 -0300
+Processing by Users::OmniauthCallbacksController#failure as HTML
+  Parameters: {"error_code"=>"1349048", "error_message"=>"Given URL is not allowed by the Application configuration: One or more of the given URLs is not allowed by the App's settings.  It must match the Website URL or Canvas URL, or the domain must be a subdomain of one of the App's domains.", "state"=>"b16b8795ff04379b9d7569fa572178520cde5343e416fd08"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-08-12 17:57:16 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 59ms (Views: 58.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-08-12 17:59:54 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 69ms (Views: 68.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-08-12 17:59:54 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 51ms (Views: 50.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-08-12 17:59:54 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 56ms (Views: 55.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-08-12 17:59:54 -0300
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-08-12 17:59:54 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 51ms (Views: 50.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/applications.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-08-12 17:59:55 -0300
+
+
+Started GET "/assets/scaffolds.self-8584e6643c2ee0326253d6f8f8c7ddd399ccd8776160cf6694c6461b32137646.css?body=1" for 127.0.0.1 at 2015-08-12 17:59:55 -0300
+
+
+Started GET "/assets/courses.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-08-12 17:59:55 -0300
+
+
+Started GET "/assets/universities.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-08-12 17:59:55 -0300
+
+
+Started GET "/assets/pins.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-08-12 17:59:55 -0300
+
+
+Started GET "/assets/page.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-08-12 17:59:55 -0300
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-08-12 17:59:55 -0300
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-08-12 17:59:55 -0300
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-08-12 17:59:55 -0300
+
+
+Started GET "/assets/applications.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-08-12 17:59:55 -0300
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for 127.0.0.1 at 2015-08-12 17:59:55 -0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-08-12 17:59:55 -0300
+
+
+Started GET "/assets/courses.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-08-12 17:59:55 -0300
+
+
+Started GET "/assets/page.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-08-12 17:59:55 -0300
+
+
+Started GET "/assets/pins.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-08-12 17:59:55 -0300
+
+
+Started GET "/assets/universities.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-08-12 17:59:55 -0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-08-12 17:59:55 -0300
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-08-12 17:59:55 -0300
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-08-12 17:59:57 -0300
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-08-12 17:59:57 -0300
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 18:05:01 -0300
+Processing by PageController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-08-12 18:05:01 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 50ms (Views: 49.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-08-12 18:05:04 -0300
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-08-12 18:05:04 -0300
+
+
+Started GET "/users/auth/facebook/callback?error_code=4201&error_message=User+canceled+the+Dialog+flow&state=ab2acc4ce42de1dbf4798cd2de1e3157bb037fef5949a4c9" for 127.0.0.1 at 2015-08-12 18:05:07 -0300
+Processing by Users::OmniauthCallbacksController#failure as HTML
+  Parameters: {"error_code"=>"4201", "error_message"=>"User canceled the Dialog flow", "state"=>"ab2acc4ce42de1dbf4798cd2de1e3157bb037fef5949a4c9"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-08-12 18:05:07 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 62ms (Views: 61.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-08-12 18:05:08 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 58ms (Views: 56.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-08-12 18:05:13 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 45ms (Views: 43.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-08-12 18:05:23 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2WWfEBAeE6gOhwn3g4SZJcMH5p4POaG7t9BaklforVEAsZskxri7AiTI8kR8XfPfWP5P5XraszqpP9ZCr4o06Q==", "user"=>{"email"=>"c.aguirre017@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "c.aguirre017@gmail.com"]]
+Completed 401 Unauthorized in 27ms (ActiveRecord: 0.2ms)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2WWfEBAeE6gOhwn3g4SZJcMH5p4POaG7t9BaklforVEAsZskxri7AiTI8kR8XfPfWP5P5XraszqpP9ZCr4o06Q==", "user"=>{"email"=>"c.aguirre017@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendered devise/shared/_links.html.erb (0.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 118ms (Views: 48.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-08-12 18:05:26 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 55ms (Views: 54.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-08-12 18:05:39 -0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sZHYpeDQEmSviaopLu5PYZh8a7UFGoB7+T6z2zuP9TNoRdyRNna6zoXGUZrRNyWbA4XCznD5kvrn0T8Lw+1siw==", "user"=>{"name"=>"", "profession"=>"", "phone"=>"", "email"=>"c.aguirre017@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameters: name, profession, phone
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'c.aguirre017@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "c.aguirre017@gmail.com"], ["encrypted_password", "$2a$10$kaHyqS2Pxv0xG/Do32r.u.uAKoLPr.3dUGvLTXDPfYS1pfdA67l2y"], ["created_at", "2015-08-12 21:05:39.642604"], ["updated_at", "2015-08-12 21:05:39.642604"]]
+  [1m[35m (158.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2015-08-12 21:05:39.803366"], ["current_sign_in_at", "2015-08-12 21:05:39.803366"], ["last_sign_in_ip", "127.0.0.1"], ["current_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2015-08-12 21:05:39.804356"], ["id", 2]]
+  [1m[36m (141.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 389ms (ActiveRecord: 300.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 18:05:39 -0300
+Processing by PageController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  Rendered page/index.html.erb within layouts/application (17.2ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined local variable or method `token_create_path' for #<#<Class:0x007f25e9ef3088>:0x007f25e9ef24a8>):
+     5: <p>La autenficacion necesita de el token y el id del usuario. Y debe entregarse con cada request por en los parametros de la consulta. <br> A modo de ejemplo puede ser la siguiente URL:</p>
+     6: <code>?user_id=&lt;ID&gt;&amp;user_token=&lt;TOKEN&gt;</code>
+     7: <p>El servidor autentificara lo primero que haria seria autentificar al usuario y luego realizaria lo solicitado</p>
+     8: <p>Para la obtencion de este token se utilizan la ruta <%= link_to(nil, token_create_path) %> al que se le deben
+     9:   enviar por GET el email y constraseña, un ejemplo seria:</p>
+    10: <code><%= link_to(nil, token_create_path) %>.json?fbuid=&lt;FBUID&gt;&amp;fbsecrettoken=&lt;TOKEN&gt;</code>
+    11: <p>Para destruir el token:</p>
+  app/views/page/index.html.erb:8:in `_app_views_page_index_html_erb___4357156031304689603_69900407638400'
+
+
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.5ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (19.7ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/console.js.erb within layouts/javascript (12.9ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/index.html.erb (25.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 18:07:22 -0300
+Processing by PageController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  Rendered page/index.html.erb within layouts/application (13.8ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.1ms)
+
+ActionView::Template::Error (undefined local variable or method `usuarios_registar_movil_path' for #<#<Class:0x007f25e9ef3088>:0x0000000356b7a8>):
+    20:   <li><b>PUT/PATCH:</b> actualizar informacion de entidad</li>
+    21: </ul>
+    22: <h3>Creacion de usuarios</h3>
+    23: <p>Para la creacion de usuarios la url es <%= link_to(nil, usuarios_registar_movil_path) %> y requiere de ciertos parametros enviados mediante POST:</p>
+    24: <ul>
+    25:   <li>email: email a usar por el usuario</li>
+    26:   <li>uid: id de usuario en facebook</li>
+  app/views/page/index.html.erb:23:in `_app_views_page_index_html_erb___4357156031304689603_27963080'
+
+
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.5ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (17.0ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/console.js.erb within layouts/javascript (12.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/index.html.erb (24.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 18:07:22 -0300
+Processing by PageController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  Rendered page/index.html.erb within layouts/application (15.5ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.1ms)
+
+ActionView::Template::Error (undefined local variable or method `usuarios_registar_movil_path' for #<#<Class:0x007f25e9ef3088>:0x007f25e814b260>):
+    20:   <li><b>PUT/PATCH:</b> actualizar informacion de entidad</li>
+    21: </ul>
+    22: <h3>Creacion de usuarios</h3>
+    23: <p>Para la creacion de usuarios la url es <%= link_to(nil, usuarios_registar_movil_path) %> y requiere de ciertos parametros enviados mediante POST:</p>
+    24: <ul>
+    25:   <li>email: email a usar por el usuario</li>
+    26:   <li>uid: id de usuario en facebook</li>
+  app/views/page/index.html.erb:23:in `_app_views_page_index_html_erb___4357156031304689603_27963080'
+
+
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (16.6ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/console.js.erb within layouts/javascript (12.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/index.html.erb (24.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 18:07:23 -0300
+Processing by PageController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  Rendered page/index.html.erb within layouts/application (15.6ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.1ms)
+
+ActionView::Template::Error (undefined local variable or method `usuarios_registar_movil_path' for #<#<Class:0x007f25e9ef3088>:0x007f25e9600250>):
+    20:   <li><b>PUT/PATCH:</b> actualizar informacion de entidad</li>
+    21: </ul>
+    22: <h3>Creacion de usuarios</h3>
+    23: <p>Para la creacion de usuarios la url es <%= link_to(nil, usuarios_registar_movil_path) %> y requiere de ciertos parametros enviados mediante POST:</p>
+    24: <ul>
+    25:   <li>email: email a usar por el usuario</li>
+    26:   <li>uid: id de usuario en facebook</li>
+  app/views/page/index.html.erb:23:in `_app_views_page_index_html_erb___4357156031304689603_27963080'
+
+
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.5ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (26.6ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/console.js.erb within layouts/javascript (13.4ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/index.html.erb (25.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 18:07:33 -0300
+Processing by PageController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  Rendered page/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 47ms (Views: 46.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/applications.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-08-12 18:07:33 -0300
+
+
+Started GET "/assets/courses.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-08-12 18:07:33 -0300
+
+
+Started GET "/assets/pins.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-08-12 18:07:33 -0300
+
+
+Started GET "/assets/scaffolds.self-8584e6643c2ee0326253d6f8f8c7ddd399ccd8776160cf6694c6461b32137646.css?body=1" for 127.0.0.1 at 2015-08-12 18:07:33 -0300
+
+
+Started GET "/assets/page.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-08-12 18:07:33 -0300
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-08-12 18:07:33 -0300
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-08-12 18:07:33 -0300
+
+
+Started GET "/assets/universities.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-08-12 18:07:33 -0300
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-08-12 18:07:33 -0300
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for 127.0.0.1 at 2015-08-12 18:07:33 -0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-08-12 18:07:33 -0300
+
+
+Started GET "/assets/applications.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-08-12 18:07:33 -0300
+
+
+Started GET "/assets/courses.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-08-12 18:07:33 -0300
+
+
+Started GET "/assets/page.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-08-12 18:07:33 -0300
+
+
+Started GET "/assets/pins.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-08-12 18:07:34 -0300
+
+
+Started GET "/assets/universities.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-08-12 18:07:34 -0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-08-12 18:07:34 -0300
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-08-12 18:07:34 -0300

@@ -1,2 +1,29 @@
-<h1>Page#index</h1>
-<p>Find me in app/views/page/index.html.erb</p>
+<div class="container">
+<h1>Bukit API</h1>
+<p>Especificaciones de la API:</p>
+<h2>Autentificacion</h2>
+<p>La autenficacion necesita de el token y el id del usuario. Y debe entregarse con cada request por en los parametros de la consulta. <br> A modo de ejemplo puede ser la siguiente URL:</p>
+<code>?user_id=&lt;ID&gt;&amp;user_token=&lt;TOKEN&gt;</code>
+<p>El servidor autentificara lo primero que haria seria autentificar al usuario y luego realizaria lo solicitado</p>
+<p>Para la obtencion de este token se utilizan la ruta al que se le deben
+  enviar por GET el email y constraseña, un ejemplo seria:</p>
+<code>.json?fbuid=&lt;FBUID&gt;&amp;fbsecrettoken=&lt;TOKEN&gt;</code>
+<p>Para destruir el token:</p>
+<h2>Rutas</h2>
+<p>Al agregar <code>.json</code> al final de la url se devuelve un resultado en formato json, por el contrario se devuelve en html</p>
+<p>Estas son las rutas tipo <a href='http://es.wikipedia.org/wiki/CRUD'>CRUD</a> para un usuario comun y corriente (un administrador tiene todos los privilegios)</p>
+<p>Para DELETE y PATCH el id del usuario debe ser el mismo al creador de el objeto</p>
+<p>En resumen:</p>
+<ul>
+  <li><b>GET:</b> obtener información entidad</li>
+  <li><b>POST:</b> crear entidad</li>
+  <li><b>PUT/PATCH:</b> actualizar informacion de entidad</li>
+</ul>
+<h3>Creacion de usuarios</h3>
+<p>Para la creacion de usuarios la url es  y requiere de ciertos parametros enviados mediante POST:</p>
+<ul>
+  <li>email: email a usar por el usuario</li>
+  <li>uid: id de usuario en facebook</li>
+  <li>fbsecrettoken: token secreto valido devuelto al pedir permisos</li>
+</ul>
+    <p>De esta forma si el token es valido y la aplicación esta instalada se crea el usuario y la información es devuelta por la API.</p>
