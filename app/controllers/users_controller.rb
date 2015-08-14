@@ -24,15 +24,41 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+ 
+    # Confirmamos secret token
+    fbsecrettoken = params['fbsecrettoken']
+    uid = params['uid']
+
+    if fbsecrettoken.nil? or uid.nil?
+      render :json => { :errors => 'Faltan parametros fbsecrettoken o uid'}  and return
+    end
+
+    @graph = Koala::Facebook::API.new(fbsecrettoken)
+    permisos = []
+    
+    begin
+      permisos = @graph.get_connections(uid, 'permissions')
+    rescue Koala::Facebook::AuthenticationError => e
+      # Token invalido
+      render :json => { :errors => "Autentificacion for facebook invalida: #{ e }"}  and return
+    end
+
+    # Confirmamos que el usuario instalo la aplicacion
+    if not permisos.any? { |p| p['permission'] == 'installed' }
+      render :json => { :errors => 'La aplicacion no esta instalada en este usuario'}  and return
+    end
+
+    @usuario = User.new(user_params)
+    @usuario.provider = 'facebook'
+    @usuario.password = @usuario.password_confirmation = Devise.friendly_token
 
     respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+      if @usuario.save
+        format.html { redirect_to @usuario, notice: 'Usuario fue correctamente creado.' }
+        format.json { render :show, status: :created, location: @usuario }
       else
         format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.json { render json: @usuario.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -69,6 +95,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :profession, :email, :role, :phone)
+      params.require(:user).permit(:name, :profession, :email, :phone)
     end
 end

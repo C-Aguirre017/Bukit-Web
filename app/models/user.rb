@@ -22,9 +22,11 @@
 #  last_sign_in_ip        :string
 #  provider               :string
 #  uid                    :string
+#  authentication_token   :string
 #
 
 class User < ActiveRecord::Base
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -40,6 +42,8 @@ class User < ActiveRecord::Base
   has_many :pins
   has_many :applications
   belongs_to :university
+
+  before_save :default_values, :ensure_authentication_token
 
 
   def self.from_omniauth(auth)
@@ -59,5 +63,43 @@ class User < ActiveRecord::Base
     end
   end
 
+  def verificarFbAccessToken(fbSecretToken)
+    @graph = Koala::Facebook::API.new(fbSecretToken)
+    
+    begin
+      @graph.get_connections(self.uid, 'permissions')
+    rescue
+      # Token invalido
+     return false
+    end
+    
+    return true
+  end
+
+   def default_values
+    self.role ||= 'usuario'
+    nil
+  end
+
+
+  def ensure_authentication_token
+    if authentication_token.blank?
+      self.authentication_token = generate_authentication_token
+    end
+  end
+
+  def reset_authentication_token
+    self.authentication_token = ''
+    ensure_authentication_token
+  end
+
+  private
+
+  def generate_authentication_token
+    loop do
+      token = Devise.friendly_token
+      break token unless Usuario.where(authentication_token: token).first
+    end
+  end
 
 end

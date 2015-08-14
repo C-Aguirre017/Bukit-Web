@@ -35,6 +35,8 @@ gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
 gem 'rails_layout', '~> 1.0.24'
 
+#Gema Fb
+gem "koala", "~> 2.2"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -58,6 +60,8 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg'
+  gem 'mysql2'
   gem 'rails_12factor'
+  gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'			
+  gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
 end

@@ -22,6 +22,7 @@
 #  last_sign_in_ip        :string
 #  provider               :string
 #  uid                    :string
+#  authentication_token   :string
 #
 
 require 'test_helper'
