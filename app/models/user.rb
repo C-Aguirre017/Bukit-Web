@@ -5,7 +5,7 @@
 #  id                     :integer          not null, primary key
 #  name                   :string
 #  profession             :string
-#  role                   :integer
+#  role                   :string
 #  phone                  :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
@@ -24,6 +24,7 @@
 #  uid                    :string
 #  authentication_token   :string
 #
+
 
 class User < ActiveRecord::Base
   

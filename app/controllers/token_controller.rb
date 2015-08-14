@@ -1,5 +1,6 @@
 class TokenController < ApplicationController
-  
+   authorize_resource
+
    def create
     fbuid = params[:fbuid]
     fbsecrettoken = params[:fbsecrettoken]

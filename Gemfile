@@ -24,7 +24,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 #Gems Used
 gem 'annotate', '~> 2.6.6'
-
+gem 'cancancan', '~> 1.10'
 gem 'devise'
 
 # Facebook Login
