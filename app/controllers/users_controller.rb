@@ -32,8 +32,8 @@ class UsersController < ApplicationController
   def create
  
     # Confirmamos secret token
-    fbsecrettoken = params['fbsecrettoken']
-    uid = params['uid']
+    fbsecrettoken = params[:fbsecrettoken]
+    uid = params[:uid]
 
     if fbsecrettoken.nil? or uid.nil?
       render :json => { :errors => 'Faltan parametros fbsecrettoken o uid'}  and return
