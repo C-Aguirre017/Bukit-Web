@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:edit, :update, :destroy]
   load_and_authorize_resource
   
   # GET /users
@@ -11,6 +11,11 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    if not params['id'].nil?
+      @user = User.find(params[:id])
+    elsif not params['uid'].nil?
+      @user = User.find_by_uid!(params[:uid])
+    end
   end
 
   # GET /users/new
@@ -49,17 +54,17 @@ class UsersController < ApplicationController
       render :json => { :errors => 'La aplicacion no esta instalada en este usuario'}  and return
     end
 
-    @usuario = User.new(user_params)
-    @usuario.provider = 'facebook'
-    @usuario.password = @usuario.password_confirmation = Devise.friendly_token
+    @user = User.new(user_params)
+    @user.provider = 'facebook'
+    @user.password = @user.password_confirmation = Devise.friendly_token
 
     respond_to do |format|
-      if @usuario.save
-        format.html { redirect_to @usuario, notice: 'Usuario fue correctamente creado.' }
-        format.json { render :show, status: :created, location: @usuario }
+      if @user.save
+        format.html { redirect_to @user, notice: 'Usuario fue correctamente creado.' }
+        format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
-        format.json { render json: @usuario.errors, status: :unprocessable_entity }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end

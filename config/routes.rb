@@ -6,8 +6,11 @@ Rails.application.routes.draw do
   
   resources :applications
   resources :pins
+ 
+  #Usuarios
   resources :users
-  
+  get 'fb/:uid' => 'users#show', as: :fb_uid
+  post "users/register" => "users#create", :as => :user_register
 
   resources :courses, only: [:show,:index]
   resources :universities, only: [:show,:index]
