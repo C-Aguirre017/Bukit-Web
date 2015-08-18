@@ -12,4 +12,8 @@
 
 class Course < ActiveRecord::Base
 	has_many :pins
+
+	def self.buscar(query)
+    	return Course.where(["lower(course.name) LIKE ? or lower(course.initials) LIKE ?", "%" + query.downcase + "%", "%" + query.downcase + "%"]).limit(30)
+  	end
 end

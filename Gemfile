@@ -37,6 +37,8 @@ gem 'rails_layout', '~> 1.0.24'
 
 #Gema Fb
 gem "koala", "~> 2.2"
+gem "tablebuilder", :git => "https://github.com/mbreit/tablebuilder"
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

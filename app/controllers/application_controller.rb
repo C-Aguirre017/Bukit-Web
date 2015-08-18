@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   # Redirects to login for secure resources
   rescue_from CanCan::AccessDenied do |exception|
-    if usuario_signed_in?
+    if user_signed_in?
       flash[:error] = 'No esta autorizado para ver esta pagina'
       redirect_to '/'
     else
@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user_from_token!
     user_id = params[:user_id].presence
-    user    = user_id && Usuario.find(user_id)
+    user    = user_id && User.find(user_id)
 
     # Notice how we use Devise.secure_compare to compare the token
     # in the database with the token given in the params, mitigating
@@ -31,6 +31,13 @@ class ApplicationController < ActionController::Base
         flash[:error] = 'Token de autentificacion invalido'
       end
     end
-   end
+
+    #if not user_signed_in?
+     # respond_to do |format|
+      #  format.html {}
+       # format.json {  render :status => 401, :json => { :message => 'No estas Ingresado' } }
+      #end
+    #end
+  end
 
 end

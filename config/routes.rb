@@ -7,10 +7,12 @@ Rails.application.routes.draw do
   resources :applications
   resources :pins
   resources :users
-  resources :courses
+  
+
+  resources :courses, only: [:show,:index]
   resources :universities, only: [:show,:index]
 
-  get 'token/create'
+  get 'token/create' 
   get 'token/destroy'
 
 

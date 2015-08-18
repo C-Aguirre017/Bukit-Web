@@ -1,6 +1,7 @@
 class ApplicationsController < ApplicationController
   before_action :set_application, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
+  
   # GET /applications
   # GET /applications.json
   def index

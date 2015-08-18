@@ -5,15 +5,14 @@ class Ability
     # Define abilities for the passed in user here. For example:
     
        user ||= User.new # guest user (not logged in)
-       if user.admin?
+
+       if user.role == 'admin'
          can :manage, :all
        else
          can :read, :all
        end
     
-       if user.role == 'usuario'
 
-       end
 
     # The first argument to `can` is the action you are giving the user
     # permission to do.
@@ -34,9 +33,11 @@ class Ability
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
   
     # Read is Index and Show 
-    can :read, [Comentario, Pin, Ramo, Clase, Usuario, Universidad, Solicitud]
-    can :create, [Usuario]
-    can :buscar, [Pin, Ramo]
- 
+    if user.role == 'usuario'
+      can :read, [Pin, Course, User, University, Application]
+      can :create, [User]
+      #can :buscar, [Pin, Ramo]
+    end
+    
   end
 end
