@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   get 'fb/:uid' => 'users#show', as: :fb_uid
   post 'users/register' => "users#create", :as => :user_register
 
+  #Cursos
   resources :courses, only: [:show,:index]
+  get "courses/search/:palabra" => "courses#search", as: :course_search
+
+  #Universities
   resources :universities, only: [:show,:index]
 
   get 'token/create' 

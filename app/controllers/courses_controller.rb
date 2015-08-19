@@ -38,6 +38,13 @@ class CoursesController < ApplicationController
     end
   end
 
+  # GET
+  def buscar
+    query = params[:palabra]
+    @ramos = Course.buscar(query)
+    render 'courses/index'
+  end
+
   # PATCH/PUT /courses/1
   # PATCH/PUT /courses/1.json
   def update
