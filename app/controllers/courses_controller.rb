@@ -39,7 +39,7 @@ class CoursesController < ApplicationController
   end
 
   # GET
-  def buscar
+  def search
     query = params[:palabra]
     @ramos = Course.buscar(query)
     render 'courses/index'

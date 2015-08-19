@@ -15315,3 +15315,644 @@ Processing by PinsController#index as JSON
   [1m[36mCourse Load (0.1ms)[0m  [1mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT 1[0m  [["id", 1]]
   Rendered pins/index.json.jbuilder (6.2ms)
 Completed 200 OK in 14ms (Views: 9.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-18 22:38:06 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PageController#index as HTML
+  Rendered page/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 359ms (Views: 346.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-18 22:38:06 -0300
+Processing by PageController#index as HTML
+  Rendered page/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 96ms (Views: 95.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (118.3ms)[0m  [1mCREATE TABLE "applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "pin_id" integer, "user_id" integer, "reached" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (133.5ms)[0m  [1mCREATE  INDEX "index_applications_on_pin_id" ON "applications" ("pin_id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_applications_on_pin_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_applications_on_pin_id' AND type='index'
+
+  [1m[36m (211.4ms)[0m  [1mCREATE  INDEX "index_applications_on_user_id" ON "applications" ("user_id")[0m
+  [1m[35m (155.8ms)[0m  CREATE TABLE "courses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "initials" varchar, "branch" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (157.8ms)[0m  [1mCREATE TABLE "pins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "publication" datetime, "realization" datetime, "duration" integer, "title" varchar, "description" varchar, "price" integer, "help_type" integer, "faculty" varchar, "latitude" float, "longitude" float, "course_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (122.8ms)[0m  CREATE  INDEX "index_pins_on_course_id" ON "pins" ("course_id")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_pins_on_course_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_pins_on_course_id' AND type='index'
+[0m
+  [1m[35m (133.3ms)[0m  CREATE  INDEX "index_pins_on_user_id" ON "pins" ("user_id")
+  [1m[36m (144.8ms)[0m  [1mCREATE TABLE "universities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (153.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "profession" varchar, "role" varchar, "phone" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "university_id" integer, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "provider" varchar, "uid" varchar, "authentication_token" varchar) 
+  [1m[36m (122.6ms)[0m  [1mCREATE  INDEX "index_users_on_authentication_token" ON "users" ("authentication_token")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_authentication_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_authentication_token' AND type='index'
+
+  [1m[36m (122.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_authentication_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_authentication_token' AND type='index'
+[0m
+  [1m[35m (155.3ms)[0m  CREATE  INDEX "index_users_on_provider" ON "users" ("provider")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_provider' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_provider' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_authentication_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_authentication_token' AND type='index'
+[0m
+  [1m[35m (154.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_provider' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_provider' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_authentication_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_authentication_token' AND type='index'
+
+  [1m[36m (143.6ms)[0m  [1mCREATE  INDEX "index_users_on_uid" ON "users" ("uid")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_uid' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_uid' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_provider' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_provider' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_authentication_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_authentication_token' AND type='index'
+
+  [1m[36m (154.8ms)[0m  [1mCREATE  INDEX "index_users_on_university_id" ON "users" ("university_id")[0m
+  [1m[35m (134.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (155.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (144.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150814010246')[0m
+  [1m[35m (123.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150711192325')
+  [1m[36m (145.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150711190915')[0m
+  [1m[35m (145.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150711192912')
+  [1m[36m (200.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150711191624')[0m
+  [1m[35m (1245.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150711193128')
+  [1m[36m (146.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150812162836')[0m
+  [1m[35m (178.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150713015329')
+  [1m[36m (136.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150711191344')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'c.aguirre017@gmail.com' LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "users" ("email", "name", "encrypted_password", "role", "authentication_token", "provider", "uid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "c.aguirre017@gmail.com"], ["name", "Carlos Aguirre"], ["encrypted_password", "$2a$10$QP1BJ/7RG5hh95FY1/TxQOAK3GNQQ8/Lcu1n1lm2CgmMmkHmXtk/a"], ["role", "usuario"], ["authentication_token", "LDskzPi1vfr31746VKG3"], ["provider", "facebook"], ["uid", "10206157769204221"], ["created_at", "2015-08-19 01:38:27.725942"], ["updated_at", "2015-08-19 01:38:27.725942"]]
+  [1m[35m (162.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCourse Exists (0.1ms)[0m  SELECT  1 AS one FROM "courses" WHERE "courses"."initials" = 'ACO213E' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "courses" ("name", "initials", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "La Escena Interna"], ["initials", "ACO213E"], ["created_at", "2015-08-19 01:38:27.900402"], ["updated_at", "2015-08-19 01:38:27.900402"]]
+  [1m[35m (181.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (20.1ms)[0m  INSERT INTO "pins" ("user_id", "publication", "duration", "price", "faculty", "latitude", "longitude", "course_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["user_id", 1], ["publication", "2015-08-19 01:38:28.085630"], ["duration", 30], ["price", 5000], ["faculty", "san joaquin"], ["latitude", -33.498444], ["longitude", -70.611722], ["course_id", 1], ["created_at", "2015-08-19 01:38:28.100159"], ["updated_at", "2015-08-19 01:38:28.100159"]]
+  [1m[36m (206.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCourse Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "courses" WHERE "courses"."initials" = 'ACO214E' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "courses" ("name", "initials", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Pedagogia Teatral"], ["initials", "ACO214E"], ["created_at", "2015-08-19 01:38:28.349611"], ["updated_at", "2015-08-19 01:38:28.349611"]]
+  [1m[36m (135.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCourse Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "courses" WHERE "courses"."initials" = 'ACO226E' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "courses" ("name", "initials", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Introduccion A La Direccion"], ["initials", "ACO226E"], ["created_at", "2015-08-19 01:38:28.487231"], ["updated_at", "2015-08-19 01:38:28.487231"]]
+  [1m[36m (154.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCourse Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "courses" WHERE "courses"."initials" = 'ACO250E' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "courses" ("name", "initials", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Maquillaje Teatral"], ["initials", "ACO250E"], ["created_at", "2015-08-19 01:38:28.644395"], ["updated_at", "2015-08-19 01:38:28.644395"]]
+  [1m[36m (153.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCourse Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "courses" WHERE "courses"."initials" = 'ACO256E' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "courses" ("name", "initials", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Improvisacion Y Mascara"], ["initials", "ACO256E"], ["created_at", "2015-08-19 01:38:28.800647"], ["updated_at", "2015-08-19 01:38:28.800647"]]
+  [1m[36m (165.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCourse Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "courses" WHERE "courses"."initials" = 'ACO264E' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "courses" ("name", "initials", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Habilidades Comunicativas Orales"], ["initials", "ACO264E"], ["created_at", "2015-08-19 01:38:28.968199"], ["updated_at", "2015-08-19 01:38:28.968199"]]
+  [1m[36m (176.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCourse Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "courses" WHERE "courses"."initials" = 'ACO271' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("name", "initials", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Laboratorio De Practicas Performativas"], ["initials", "ACO271"], ["created_at", "2015-08-19 01:38:29.148632"], ["updated_at", "2015-08-19 01:38:29.148632"]]
+  [1m[36m (153.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCourse Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "courses" WHERE "courses"."initials" = 'ACO284E' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "courses" ("name", "initials", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Teoria Y Practica De La Meditacion"], ["initials", "ACO284E"], ["created_at", "2015-08-19 01:38:29.305951"], ["updated_at", "2015-08-19 01:38:29.305951"]]
+  [1m[36m (176.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCourse Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "courses" WHERE "courses"."initials" = 'ACO290E' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "courses" ("name", "initials", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Bailes Teatrales   Hombres"], ["initials", "ACO290E"], ["created_at", "2015-08-19 01:38:29.484701"], ["updated_at", "2015-08-19 01:38:29.484701"]]
+  [1m[36m (132.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCourse Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "courses" WHERE "courses"."initials" = 'ACO292E' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "courses" ("name", "initials", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Bailes Teatrales   Mujeres"], ["initials", "ACO292E"], ["created_at", "2015-08-19 01:38:29.619062"], ["updated_at", "2015-08-19 01:38:29.619062"]]
+  [1m[36m (121.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCourse Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "courses" WHERE "courses"."initials" = 'ACO3005' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "courses" ("name", "initials", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Arte Y Cultura Urbana Latinoamericana"], ["initials", "ACO3005"], ["created_at", "2015-08-19 01:38:29.742642"], ["updated_at", "2015-08-19 01:38:29.742642"]]
+  [1m[36m (153.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCourse Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "courses" WHERE "courses"."initials" = 'ACO300E' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "courses" ("name", "initials", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Taller Tecnica Actoral Y Lenguaje Audiovisual"], ["initials", "ACO300E"], ["created_at", "2015-08-19 01:38:29.899062"], ["updated_at", "2015-08-19 01:38:29.899062"]]
+  [1m[36m (109.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCourse Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "courses" WHERE "courses"."initials" = 'ACO304E' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "courses" ("name", "initials", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Teoria Postdramatica Y Teatro Chileno Contemporaneo"], ["initials", "ACO304E"], ["created_at", "2015-08-19 01:38:30.011153"], ["updated_at", "2015-08-19 01:38:30.011153"]]
+  [1m[36m (131.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCourse Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "courses" WHERE "courses"."initials" = 'ACO3315' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "courses" ("name", "initials", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Proceso Y Articulacion Del Texto Teatral"], ["initials", "ACO3315"], ["created_at", "2015-08-19 01:38:30.145873"], ["updated_at", "2015-08-19 01:38:30.145873"]]
+  [1m[36m (142.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCourse Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "courses" WHERE "courses"."initials" = 'ACO3320' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "courses" ("name", "initials", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Procesos Y Articulaciones De La Puesta En Escena"], ["initials", "ACO3320"], ["created_at", "2015-08-19 01:38:30.291031"], ["updated_at", "2015-08-19 01:38:30.291031"]]
+  [1m[36m (142.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCourse Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "courses" WHERE "courses"."initials" = 'ACT1221' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "courses" ("name", "initials", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Actuacion I"], ["initials", "ACT1221"], ["created_at", "2015-08-19 01:38:30.436559"], ["updated_at", "2015-08-19 01:38:30.436559"]]
+  [1m[36m (142.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCourse Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "courses" WHERE "courses"."initials" = 'ACT1222' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "courses" ("name", "initials", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Teoria Cultural Del Drama"], ["initials", "ACT1222"], ["created_at", "2015-08-19 01:38:30.582310"], ["updated_at", "2015-08-19 01:38:30.582310"]]
+  [1m[36m (142.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mCourse Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "courses" WHERE "courses"."initials" = 'ACT1223' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "courses" ("name", "initials", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Movimiento I"], ["initials", "ACT1223"], ["created_at", "2015-08-19 01:38:30.729065"], ["updated_at", "2015-08-19 01:38:30.729065"]]
+  [1m[36m (131.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad de Chile"], ["created_at", "2015-08-19 01:38:30.892841"], ["updated_at", "2015-08-19 01:38:30.892841"]]
+  [1m[35m (122.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Pontificia Universidad Católica de Chile"], ["created_at", "2015-08-19 01:38:31.019326"], ["updated_at", "2015-08-19 01:38:31.019326"]]
+  [1m[36m (166.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad de Concepción"], ["created_at", "2015-08-19 01:38:31.187307"], ["updated_at", "2015-08-19 01:38:31.187307"]]
+  [1m[35m (376.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Pontificia Universidad Católica de Valparaíso"], ["created_at", "2015-08-19 01:38:31.566199"], ["updated_at", "2015-08-19 01:38:31.566199"]]
+  [1m[36m (143.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad Austral de Chile"], ["created_at", "2015-08-19 01:38:31.711877"], ["updated_at", "2015-08-19 01:38:31.711877"]]
+  [1m[35m (165.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Universidad de Talca"], ["created_at", "2015-08-19 01:38:31.879619"], ["updated_at", "2015-08-19 01:38:31.879619"]]
+  [1m[36m (143.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad Técnica Federico Santa María"], ["created_at", "2015-08-19 01:38:32.025211"], ["updated_at", "2015-08-19 01:38:32.025211"]]
+  [1m[35m (188.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Universidad de La Frontera"], ["created_at", "2015-08-19 01:38:32.215304"], ["updated_at", "2015-08-19 01:38:32.215304"]]
+  [1m[36m (121.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad Diego Portales"], ["created_at", "2015-08-19 01:38:32.338614"], ["updated_at", "2015-08-19 01:38:32.338614"]]
+  [1m[35m (132.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Universidad Católica del Norte"], ["created_at", "2015-08-19 01:38:32.472930"], ["updated_at", "2015-08-19 01:38:32.472930"]]
+  [1m[36m (156.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad Adolfo Ibáñez"], ["created_at", "2015-08-19 01:38:32.631680"], ["updated_at", "2015-08-19 01:38:32.631680"]]
+  [1m[35m (155.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Universidad Andrés Bello"], ["created_at", "2015-08-19 01:38:32.788512"], ["updated_at", "2015-08-19 01:38:32.788512"]]
+  [1m[36m (176.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad de Santiago de Chile"], ["created_at", "2015-08-19 01:38:32.967584"], ["updated_at", "2015-08-19 01:38:32.967584"]]
+  [1m[35m (143.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Universidad del Bío-Bío"], ["created_at", "2015-08-19 01:38:33.112737"], ["updated_at", "2015-08-19 01:38:33.112737"]]
+  [1m[36m (143.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad de Valparaíso"], ["created_at", "2015-08-19 01:38:33.257992"], ["updated_at", "2015-08-19 01:38:33.257992"]]
+  [1m[35m (143.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Universidad de los Andes"], ["created_at", "2015-08-19 01:38:33.403426"], ["updated_at", "2015-08-19 01:38:33.403426"]]
+  [1m[36m (143.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad de Tarapacá"], ["created_at", "2015-08-19 01:38:33.549073"], ["updated_at", "2015-08-19 01:38:33.549073"]]
+  [1m[35m (143.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Universidad de La Serena"], ["created_at", "2015-08-19 01:38:33.694379"], ["updated_at", "2015-08-19 01:38:33.694379"]]
+  [1m[36m (121.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad Alberto Hurtado"], ["created_at", "2015-08-19 01:38:33.817761"], ["updated_at", "2015-08-19 01:38:33.817761"]]
+  [1m[35m (121.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Universidad del Desarrollo"], ["created_at", "2015-08-19 01:38:33.940779"], ["updated_at", "2015-08-19 01:38:33.940779"]]
+  [1m[36m (123.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad de Antofagasta"], ["created_at", "2015-08-19 01:38:34.066184"], ["updated_at", "2015-08-19 01:38:34.066184"]]
+  [1m[35m (143.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Universidad de Los Lagos"], ["created_at", "2015-08-19 01:38:34.211561"], ["updated_at", "2015-08-19 01:38:34.211561"]]
+  [1m[36m (143.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad Mayor"], ["created_at", "2015-08-19 01:38:34.357016"], ["updated_at", "2015-08-19 01:38:34.357016"]]
+  [1m[35m (154.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Universidad Metropolitana de Ciencias de la Educación"], ["created_at", "2015-08-19 01:38:34.513268"], ["updated_at", "2015-08-19 01:38:34.513268"]]
+  [1m[36m (144.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad Católica de Temuco"], ["created_at", "2015-08-19 01:38:34.658889"], ["updated_at", "2015-08-19 01:38:34.658889"]]
+  [1m[35m (166.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Universidad Tecnológica Metropolitana"], ["created_at", "2015-08-19 01:38:34.826934"], ["updated_at", "2015-08-19 01:38:34.826934"]]
+  [1m[36m (143.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad de Magallanes"], ["created_at", "2015-08-19 01:38:34.972209"], ["updated_at", "2015-08-19 01:38:34.972209"]]
+  [1m[35m (166.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Universidad Arturo Prat"], ["created_at", "2015-08-19 01:38:35.140208"], ["updated_at", "2015-08-19 01:38:35.140208"]]
+  [1m[36m (110.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad de Atacama"], ["created_at", "2015-08-19 01:38:35.252375"], ["updated_at", "2015-08-19 01:38:35.252375"]]
+  [1m[35m (120.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Universidad Católica de la Santísima Concepción"], ["created_at", "2015-08-19 01:38:35.375436"], ["updated_at", "2015-08-19 01:38:35.375436"]]
+  [1m[36m (132.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad Católica del Maule"], ["created_at", "2015-08-19 01:38:35.509732"], ["updated_at", "2015-08-19 01:38:35.509732"]]
+  [1m[35m (112.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Universidad Santo Tomás"], ["created_at", "2015-08-19 01:38:35.624067"], ["updated_at", "2015-08-19 01:38:35.624067"]]
+  [1m[36m (132.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad Central de Chile"], ["created_at", "2015-08-19 01:38:35.758165"], ["updated_at", "2015-08-19 01:38:35.758165"]]
+  [1m[35m (233.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Universidad San Sebastián"], ["created_at", "2015-08-19 01:38:35.993160"], ["updated_at", "2015-08-19 01:38:35.993160"]]
+  [1m[36m (425.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad Adventista de Chile"], ["created_at", "2015-08-19 01:38:36.421230"], ["updated_at", "2015-08-19 01:38:36.421230"]]
+  [1m[35m (339.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Universidad de Playa Ancha"], ["created_at", "2015-08-19 01:38:36.762722"], ["updated_at", "2015-08-19 01:38:36.762722"]]
+  [1m[36m (132.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad Finis Terrae"], ["created_at", "2015-08-19 01:38:36.897364"], ["updated_at", "2015-08-19 01:38:36.897364"]]
+  [1m[35m (120.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Universidad de Artes, Ciencias y Comunicación"], ["created_at", "2015-08-19 01:38:37.020272"], ["updated_at", "2015-08-19 01:38:37.020272"]]
+  [1m[36m (143.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad Viña del Mar"], ["created_at", "2015-08-19 01:38:37.165770"], ["updated_at", "2015-08-19 01:38:37.165770"]]
+  [1m[35m (143.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Universidad Tecnológica de Chile Inacap"], ["created_at", "2015-08-19 01:38:37.310964"], ["updated_at", "2015-08-19 01:38:37.310964"]]
+  [1m[36m (166.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad Católica Silva Henríquez"], ["created_at", "2015-08-19 01:38:37.478919"], ["updated_at", "2015-08-19 01:38:37.478919"]]
+  [1m[35m (167.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Universidad Academia de Humanismo Cristiano"], ["created_at", "2015-08-19 01:38:37.648930"], ["updated_at", "2015-08-19 01:38:37.648930"]]
+  [1m[36m (132.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad de Artes y Ciencias Sociales"], ["created_at", "2015-08-19 01:38:37.784141"], ["updated_at", "2015-08-19 01:38:37.784141"]]
+  [1m[35m (141.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Universidad Autónoma de Chile"], ["created_at", "2015-08-19 01:38:37.928552"], ["updated_at", "2015-08-19 01:38:37.928552"]]
+  [1m[36m (154.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad del Pacífico"], ["created_at", "2015-08-19 01:38:38.085030"], ["updated_at", "2015-08-19 01:38:38.085030"]]
+  [1m[35m (132.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Universidad de Las Américas"], ["created_at", "2015-08-19 01:38:38.219488"], ["updated_at", "2015-08-19 01:38:38.219488"]]
+  [1m[36m (132.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad Gabriela Mistral"], ["created_at", "2015-08-19 01:38:38.353719"], ["updated_at", "2015-08-19 01:38:38.353719"]]
+  [1m[35m (132.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Universidad Bernardo O'Higgins"], ["created_at", "2015-08-19 01:38:38.487678"], ["updated_at", "2015-08-19 01:38:38.487678"]]
+  [1m[36m (121.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad Ciencias de la Informática"], ["created_at", "2015-08-19 01:38:38.611216"], ["updated_at", "2015-08-19 01:38:38.611216"]]
+  [1m[35m (154.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Universidad Internacional SEK"], ["created_at", "2015-08-19 01:38:38.767901"], ["updated_at", "2015-08-19 01:38:38.767901"]]
+  [1m[36m (199.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad del Mar"], ["created_at", "2015-08-19 01:38:38.969047"], ["updated_at", "2015-08-19 01:38:38.969047"]]
+  [1m[35m (143.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Universidad Pedro de Valdivia"], ["created_at", "2015-08-19 01:38:39.114631"], ["updated_at", "2015-08-19 01:38:39.114631"]]
+  [1m[36m (145.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad Bolivariana"], ["created_at", "2015-08-19 01:38:39.262271"], ["updated_at", "2015-08-19 01:38:39.262271"]]
+  [1m[35m (121.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Universidad Iberoamericana de Ciencias y Tecnología"], ["created_at", "2015-08-19 01:38:39.385346"], ["updated_at", "2015-08-19 01:38:39.385346"]]
+  [1m[36m (132.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad La República"], ["created_at", "2015-08-19 01:38:39.519836"], ["updated_at", "2015-08-19 01:38:39.519836"]]
+  [1m[35m (143.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Universidad de Aconcagua"], ["created_at", "2015-08-19 01:38:39.665261"], ["updated_at", "2015-08-19 01:38:39.665261"]]
+  [1m[36m (132.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad Los Leones"], ["created_at", "2015-08-19 01:38:39.799433"], ["updated_at", "2015-08-19 01:38:39.799433"]]
+  [1m[35m (132.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Universidad Chileno-Británica de Cultura"], ["created_at", "2015-08-19 01:38:39.933710"], ["updated_at", "2015-08-19 01:38:39.933710"]]
+  [1m[36m (142.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["nombre", "Universidad Miguel de Cervantes"], ["created_at", "2015-08-19 01:38:40.077655"], ["updated_at", "2015-08-19 01:38:40.077655"]]
+  [1m[35m (156.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "universities" ("nombre", "created_at", "updated_at") VALUES (?, ?, ?)  [["nombre", "Universidad La Araucana"], ["created_at", "2015-08-19 01:38:40.235711"], ["updated_at", "2015-08-19 01:38:40.235711"]]
+  [1m[36m (166.2ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-18 22:38:56 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PageController#index as HTML
+  Rendered page/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 273ms (Views: 264.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/search" for 127.0.0.1 at 2015-08-18 22:39:09 -0300
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"search"}
+  [1m[35mCourse Load (0.2ms)[0m  SELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT 1  [["id", 0]]
+Completed 404 Not Found in 20ms (ActiveRecord: 0.7ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Course with 'id'=search):
+  app/controllers/courses_controller.rb:75:in `set_course'
+
+
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (20.9ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (42.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/console.js.erb within layouts/javascript (15.8ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/index.html.erb (35.8ms)
+
+
+Started GET "/courses/search/teatral.json" for 127.0.0.1 at 2015-08-18 22:42:36 -0300
+
+AbstractController::ActionNotFound (The action 'search' could not be found for CoursesController):
+  actionpack (4.2.1) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `call'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:186:in `call!'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:164:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.2.0) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/carlos/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/carlos/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/carlos/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.5ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/console.js.erb within layouts/javascript (12.9ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/index.html.erb (26.4ms)
+
+
+Started GET "/courses/search/teatral.json" for 127.0.0.1 at 2015-08-18 22:44:14 -0300
+Processing by CoursesController#search as JSON
+  Parameters: {"palabra"=>"teatral"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 432ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-18 22:44:14 -0300
+Processing by PageController#index as HTML
+  Rendered page/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 62ms (Views: 61.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/search/teatral.json" for 127.0.0.1 at 2015-08-18 22:44:22 -0300
+Processing by CoursesController#search as JSON
+  Parameters: {"palabra"=>"teatral"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-18 22:44:22 -0300
+Processing by PageController#index as HTML
+  Rendered page/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 90ms (Views: 89.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/1?user_id=1&user_token=LDskzPi1vfr31746VKG" for 127.0.0.1 at 2015-08-18 22:46:27 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"1", "user_token"=>"LDskzPi1vfr31746VKG", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered users/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 127ms (Views: 118.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1?user_id=1&user_token=LDskzPi1vfr31746VKG" for 127.0.0.1 at 2015-08-18 22:46:30 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"1", "user_token"=>"LDskzPi1vfr31746VKG", "id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered users/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 79ms (Views: 74.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1?user_id=1&user_token=LDskzPi1vfr31746VKG3" for 127.0.0.1 at 2015-08-18 22:46:34 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"user_id"=>"1", "user_token"=>"LDskzPi1vfr31746VKG3", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-08-19 01:46:34.212952"], ["current_sign_in_at", "2015-08-19 01:46:34.212952"], ["last_sign_in_ip", "127.0.0.1"], ["current_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2015-08-19 01:46:34.214236"], ["id", 1]]
+  [1m[35m (253.8ms)[0m  commit transaction
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 349ms (Views: 55.7ms | ActiveRecord: 254.6ms)
+
+
+Started GET "/courses/search/teatral.json" for 127.0.0.1 at 2015-08-18 22:46:50 -0300
+Processing by CoursesController#search as JSON
+  Parameters: {"palabra"=>"teatral"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-18 22:46:50 -0300
+Processing by PageController#index as HTML
+  Rendered page/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 57ms (Views: 56.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/search/teatral.json?user_id=1&user_token=LDskzPi1vfr31746VKG3" for 127.0.0.1 at 2015-08-18 22:46:58 -0300
+Processing by CoursesController#search as JSON
+  Parameters: {"user_id"=>"1", "user_token"=>"LDskzPi1vfr31746VKG3", "palabra"=>"teatral"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2015-08-19 01:46:58.589526"], ["sign_in_count", 2], ["updated_at", "2015-08-19 01:46:58.590182"], ["id", 1]]
+  [1m[35m (327.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 335ms (ActiveRecord: 327.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-18 22:46:58 -0300
+Processing by PageController#index as HTML
+  Rendered page/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 58ms (Views: 58.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/search/teatral.json" for 127.0.0.1 at 2015-08-18 22:50:11 -0300
+Processing by CoursesController#search as JSON
+  Parameters: {"palabra"=>"teatral"}
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.json.jbuilder (8.3ms)
+Completed 200 OK in 48ms (Views: 30.2ms | ActiveRecord: 1.1ms)
