@@ -35,9 +35,10 @@ class Ability
     # Read is Index and Show 
     if user.role == 'usuario'
       can :read, [Pin, Course, User, University, Application]
-      can :create, [User]
       #can :buscar, [Pin, Ramo]
     end
     
+    can :create, [User]
+
   end
 end

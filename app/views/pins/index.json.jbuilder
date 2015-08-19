@@ -1,11 +1,11 @@
 json.array!(@pins) do |pin|
-  json.extract! pin, :id, :publication, :realization, :duration, :title, :description, :price, :help_type, :faculty, :latitude, :longitude
+  json.extract! pin, :id, :user_id, :publication, :realization, :duration, :title, :description, :price, :help_type, :faculty, :latitude, :longitude
   
   json.user do
-    json.extract! pin.user, :id, :email, :name, :role, :uid, :phone
+    json.extract! pin.user, :id, :email, :name, :profession , :role, :uid, :phone
   end
 
-  json.course_id do
+  json.course do
   	json.extract! pin.course, :id, :name, :initials, :branch
   end
 
