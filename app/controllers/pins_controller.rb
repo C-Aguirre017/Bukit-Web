@@ -2,6 +2,7 @@
   before_action :set_pin, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
+  #CanCan
   skip_authorize_resource :only => :create  
   skip_authorize_resource :post, :only => :create
 
