@@ -57,7 +57,7 @@ class UsersController < ApplicationController
     end
 
     # Confirmamos que el usuario instalo la aplicacion
-    if not permisos.any? { |p| p['permission'] == 'public_profile' || p['permission'] == 'email' }
+    if not permisos.any? { |p| p['permission'] == 'public_profile' }
       render :json => { :errors => 'La aplicacion no esta instalada en este usuario'}  and return
     end
 

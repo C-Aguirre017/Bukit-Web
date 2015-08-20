@@ -26854,3 +26854,80 @@ Started POST "/users/register.json" for 127.0.0.1 at 2015-08-20 13:18:51 -0300
 Processing by UsersController#create as JSON
   Parameters: {"fbsecrettoken"=>"12341251231", "uid"=>"213123", "user"=>{"email"=>"c.agui@gmail.com"}}
 Completed 200 OK in 15530ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-20 15:13:26 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PageController#index as HTML
+  Rendered page/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 247ms (Views: 238.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/register.json" for 127.0.0.1 at 2015-08-20 15:13:35 -0300
+Processing by UsersController#create as JSON
+  Parameters: {"fbsecrettoken"=>"CAAT150vAvk4BADUfPEZAiILsT7RRsDbZBZBhQx0N5l4Il3ZAG9kZATkGN4TVtmydq9CSspXZAXr2ksBcbAcz8jWFgNxC1LSq80ZCsNF8GH5nvigr4ZBfQmAmVi3BxbonogiAS0txD3WdKusYtL1dXELuNTLUgZACXj6AcSnQ3UC2blRLxmSzVgqgyWbNdZAzLZAaTSxElCtRnZC9lO7bZAY13kKk6VLspz7oRlmAZD", "uid"=>"10206157769204221", "user"=>{"email"=>"c.aguirre017@gmail.com"}}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'c.aguirre017@gmail.com' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."authentication_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["authentication_token", "mH1j8w-dRDqpxaLDAJ1t"]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "provider", "encrypted_password", "role", "authentication_token", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "c.aguirre017@gmail.com"], ["provider", "facebook"], ["encrypted_password", "$2a$10$F1z7f7Rv0PaSaImHQvQ8TeG7dJP36p9/H7B8jmLhdtqkNKHGHX2va"], ["role", "usuario"], ["authentication_token", "mH1j8w-dRDqpxaLDAJ1t"], ["created_at", "2015-08-20 18:13:51.256116"], ["updated_at", "2015-08-20 18:13:51.256116"]]
+  [1m[35m (113.6ms)[0m  commit transaction
+  Rendered users/show.json.jbuilder (0.5ms)
+Completed 201 Created in 15820ms (Views: 21.6ms | ActiveRecord: 115.0ms)
+
+
+Started GET "/usersse" for 127.0.0.1 at 2015-08-20 15:13:51 -0300
+
+ActionController::RoutingError (No route matches [GET] "/usersse"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.0) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/carlos/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/carlos/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/carlos/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.7ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.4ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (35.5ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/console.js.erb within layouts/javascript (13.8ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/index.html.erb (27.1ms)
+
+
+Started GET "/users.json" for 127.0.0.1 at 2015-08-20 15:13:51 -0300
+Processing by UsersController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.json.jbuilder (1.1ms)
+Completed 200 OK in 8ms (Views: 3.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users.json" for 127.0.0.1 at 2015-08-20 15:13:51 -0300
+Processing by UsersController#index as JSON
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.json.jbuilder (1.2ms)
+Completed 200 OK in 12ms (Views: 4.7ms | ActiveRecord: 0.3ms)
