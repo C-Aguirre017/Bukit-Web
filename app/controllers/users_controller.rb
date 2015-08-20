@@ -64,6 +64,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.provider = 'facebook'
     @user.password = @user.password_confirmation = Devise.friendly_token
+    @user.uid = uid    
 
     respond_to do |format|
       if @user.save
