@@ -27,7 +27,7 @@
   def create
     @pin = Pin.new(pin_params)
     @pin.update(pin_params)
-    @pin.usuario_id = current_usuario.id
+    @pin.user_id = params[:user_id]
 
     respond_to do |format|
       if @pin.save
