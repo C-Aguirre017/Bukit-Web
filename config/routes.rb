@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   resources :pins
  
   #Usuarios
-  resources :users
+  resources :users do 
+    resources :pins, only: :index
+  end
   get 'fb/:uid' => 'users#show', as: :fb_uid
   post 'users/register' => "users#create", :as => :user_register
 

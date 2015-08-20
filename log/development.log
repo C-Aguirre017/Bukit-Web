@@ -15956,3 +15956,93 @@ Processing by CoursesController#search as JSON
   [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
   Rendered courses/index.json.jbuilder (8.3ms)
 Completed 200 OK in 48ms (Views: 30.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-19 23:32:33 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PageController#index as HTML
+  Rendered page/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 657ms (Views: 636.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-19 23:32:35 -0300
+Processing by PageController#index as HTML
+  Rendered page/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 79ms (Views: 78.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/1/pins.json" for 127.0.0.1 at 2015-08-19 23:32:45 -0300
+Processing by PinsController#index as JSON
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPin Load (0.2ms)[0m  [1mSELECT "pins".* FROM "pins"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered pins/index.json.jbuilder (85.6ms)
+Completed 200 OK in 516ms (Views: 100.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users.json" for 127.0.0.1 at 2015-08-19 23:32:54 -0300
+Processing by UsersController#index as JSON
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.json.jbuilder (1.1ms)
+Completed 200 OK in 20ms (Views: 17.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/us" for 127.0.0.1 at 2015-08-19 23:32:58 -0300
+
+ActionController::RoutingError (No route matches [GET] "/us"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.0) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/carlos/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/carlos/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/carlos/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.0ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (30.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (189.6ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/console.js.erb within layouts/javascript (14.5ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/index.html.erb (36.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-19 23:36:37 -0300
+Processing by PageController#index as HTML
+  Rendered page/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 151ms (Views: 150.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pins.json" for 127.0.0.1 at 2015-08-19 23:36:42 -0300
+Processing by PinsController#index as JSON
+  [1m[36mPin Load (0.4ms)[0m  [1mSELECT "pins".* FROM "pins"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered pins/index.json.jbuilder (3.3ms)
+Completed 200 OK in 12ms (Views: 6.2ms | ActiveRecord: 0.5ms)
