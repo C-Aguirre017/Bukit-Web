@@ -1,7 +1,14 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :destroy]
   load_and_authorize_resource
+
+  #CanCan
+  skip_authorize_resource :only => :create  
+  skip_authorize_resource :post, :only => :create
   
+  #Avoid Authentification Token
+  #skip_before_action :verify_authenticity_token, :only => [:update, :create]
+
   # GET /users
   # GET /users.json
   def index
@@ -101,6 +108,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :profession, :email, :phone, :uid, :fbsecrettoken)
+      params.require(:user).permit(:name, :profession, :email, :phone, :uid)
     end
 end

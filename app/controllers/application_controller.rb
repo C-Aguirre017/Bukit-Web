@@ -1,10 +1,15 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
-  #before_action :authenticate_user!
-  
+  #protect_from_forgery :except => :create  
+  #before_action :entrar
+
   before_filter :authenticate_user_from_token!
+
+  def entrar
+    user = User.all.first
+    sign_in user, store: false
+  end
 
   # Redirects to login for secure resources
   rescue_from CanCan::AccessDenied do |exception|
@@ -38,6 +43,6 @@ class ApplicationController < ActionController::Base
        # format.json {  render :status => 401, :json => { :message => 'No estas Ingresado' } }
       #end
     #end
-  end
+end
 
 end

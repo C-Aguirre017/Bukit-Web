@@ -17,7 +17,7 @@ class Ability
     end
     
     can :read, [Pin, Course, User, University, Application]
-    can :create, [User,Pin]
+    can :create, [User,Pin,Application]
     can :search, [Course]
   
     # The first argument to `can` is the action you are giving the user
