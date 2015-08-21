@@ -3,8 +3,8 @@ class UsersController < ApplicationController
   load_and_authorize_resource
 
   #CanCan
-  skip_authorize_resource :only => :create  
-  skip_authorize_resource :post, :only => :create
+  skip_authorize_resource :only => [:create,:update]  
+  skip_authorize_resource :post, :only => [:create,:update]
   
   #Avoid Authentification Token
   #skip_before_action :verify_authenticity_token, :only => [:update, :create]
@@ -80,14 +80,20 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+    #Verificar Token
+    if Devise.secure_compare(@user.authentication_token, params[:user_token])
+      respond_to do |format|
+        if @user.update(user_params)
+          format.html { redirect_to @user, notice: 'User was successfully updated.' }
+          format.json { render :show, status: :ok, location: @user }
+        else
+          format.html { render :edit }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
       end
+    else
+        format.html { redirect_to @user, notice: 'Usuario no fue Actualizado - Token Invalido' }
+        format.json { render :json => { :errors => 'Token Invalido'}   }
     end
   end
 
@@ -109,6 +115,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :profession, :email, :phone, :uid)
+      params.require(:user).permit(:name, :profession, :email, :phone, :uid, :biography)
     end
 end

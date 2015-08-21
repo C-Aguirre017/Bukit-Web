@@ -23,6 +23,7 @@
 #  provider               :string
 #  uid                    :string
 #  authentication_token   :string
+#  biography              :text
 #
 
 require 'test_helper'

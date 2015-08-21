@@ -23,8 +23,8 @@
 #  provider               :string
 #  uid                    :string
 #  authentication_token   :string
+#  biography              :text
 #
-
 
 class User < ActiveRecord::Base
   

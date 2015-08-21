@@ -2,7 +2,7 @@ json.array!(@pins) do |pin|
   json.extract! pin, :id, :user_id, :publication, :realization, :duration, :title, :description, :price, :help_type, :faculty, :latitude, :longitude
   
   json.user do
-    json.extract! pin.user, :id, :email, :name, :profession , :role, :uid, :phone
+    json.extract! pin.user, :id, :email, :name, :profession, :phone
   end
 
   json.course do
