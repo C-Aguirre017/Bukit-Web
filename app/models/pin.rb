@@ -33,28 +33,8 @@ class Pin < ActiveRecord::Base
   validates :longitude, numericality: { less_than_or_equal_to: 180, greater_than_or_equal_to: -180 }
 
 
- def self.buscar(latitud, longitud, rango, ramo, tipo_ayuda, limit = 30, realizado = false)
-    condiciones = []
-    if not ramo.nil?
-      ramo = Ramo.find(ramo)
-      if not ramo.nil?
-        condiciones.push(["pins.ramo_id = ?", ramo.id])
-      end
-    end
-    if not tipo_ayuda.nil?
-      condiciones.push(["pins.tipo_ayuda = ?", tipo_ayuda])
-    end
-    if not latitud.nil? or not longitud.nil?
-      if limit.nil?
-        limit = 20
-      end
-      if rango.nil?
-        rango = 30
-      end
-      return Pin.where(conditions(condiciones)).within(rango, :origin => [latitud, longitud]).limit(limit).sort_by{|s| s.distance_to( [latitud, longitud])}
-    else
-      return Pin.where(conditions(condiciones))
-    end
+  def self.search(title)
+      return Pin.where(["lower(title) LIKE ?", "%" + title.downcase + "%"]).limit(25)      
   end
 
   def self.conditions(condiciones)

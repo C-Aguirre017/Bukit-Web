@@ -5,8 +5,11 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
   resources :applications
+
+  #Pins
   resources :pins
- 
+  get "pins/search/:word" => "pins#search", as: :pins_search
+
   #Usuarios
   resources :users do 
     resources :pins, only: :index
@@ -16,7 +19,7 @@ Rails.application.routes.draw do
 
   #Cursos
   resources :courses, only: [:show,:index]
-  get "courses/search/:palabra" => "courses#search", as: :course_search
+  get "courses/search/:word" => "courses#search", as: :course_search
 
   #Universities
   resources :universities, only: [:show,:index]

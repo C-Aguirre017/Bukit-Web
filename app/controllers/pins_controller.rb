@@ -26,6 +26,13 @@
   def edit
   end
 
+  #Get /pins/buscar/:palabra.json
+  def search
+    query = params[:word]
+    @pins = Pin.search(query)
+    render 'pins/index'
+  end
+
   # POST /pins
   # POST /pins.json
   def create

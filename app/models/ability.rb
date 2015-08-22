@@ -18,7 +18,7 @@ class Ability
     
     can :read, [Pin, Course, User, University, Application]
     can :create, [User,Pin,Application]
-    can :search, [Course]
+    can :search, [Course,Pin]
   
     # The first argument to `can` is the action you are giving the user
     # permission to do.
