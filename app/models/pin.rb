@@ -53,4 +53,8 @@ class Pin < ActiveRecord::Base
     return applications.all.count
   end
 
+  def existeSolicitud?(usuario)
+    return applications.where(user_id: usuario).present?
+  end
+
 end

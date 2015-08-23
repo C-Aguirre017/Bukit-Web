@@ -36,14 +36,24 @@ class ApplicationsController < ApplicationController
     @application = Application.new(application_params)
     @application.reached = false
 
-    respond_to do |format|
-      if @application.save
-        format.html { redirect_to @application, notice: 'Application was successfully created.' }
-        format.json { render :show, status: :created, location: @application }
+    pin = Pin.find(params[:application][:pin_id])
+
+    if pin.present?  
+      if not pin.existeSolicitud?(params[:application][:user_id])
+        respond_to do |format|
+          if @application.save
+            format.html { redirect_to @application, notice: 'Application was successfully created.' }
+            format.json { render :show, status: :created, location: @application }
+          else
+            format.html { render :new }
+            format.json { render json: @application.errors, status: :unprocessable_entity }
+          end
+        end
       else
-        format.html { render :new }
-        format.json { render json: @application.errors, status: :unprocessable_entity }
+        render :json => { :errors => 'Ya enviaste una solicitud'}
       end
+    else
+      render :json => { :errors => 'No existe el Pin'}
     end
   end
 
