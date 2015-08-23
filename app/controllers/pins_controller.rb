@@ -1,4 +1,4 @@
-    class PinsController < ApplicationController
+class PinsController < ApplicationController
   before_action :set_pin, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
