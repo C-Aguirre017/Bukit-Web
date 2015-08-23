@@ -9,9 +9,7 @@ Rails.application.routes.draw do
 
   #Pins
   resources :pins do
-    member do
       resources :applications, only: [:index]
-    end
   end
 
   get "pins/search/:word" => "pins#search", as: :pins_search

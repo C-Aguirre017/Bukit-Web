@@ -9,7 +9,11 @@ class ApplicationsController < ApplicationController
   # GET /applications
   # GET /applications.json
   def index
-    @applications = Application.all
+    if params[:pin_id].present?
+      @applications = Application.where(pin_id: params[:pin_id])
+    else
+      @applications = Application.all
+    end
   end
 
   # GET /applications/1
