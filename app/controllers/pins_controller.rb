@@ -9,7 +9,11 @@ class PinsController < ApplicationController
   # GET /pins
   # GET /pins.json
   def index
-    @pins = Pin.all
+    if params[:user_id].present?
+      @pins = Pin.where(user_id: params[:user_id])
+    else
+      @pins = Pin.all
+    end
   end
 
   # GET /pins/1
@@ -26,7 +30,7 @@ class PinsController < ApplicationController
   def edit
   end
 
-  #Get /pins/buscar/:palabra.json
+  #Get /pins/buscar/:word.json
   def search
     query = params[:word]
     @pins = Pin.search(query)

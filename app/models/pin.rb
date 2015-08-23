@@ -49,5 +49,8 @@ class Pin < ActiveRecord::Base
     condiciones.map { |condition| condition[1..-1] }.flatten
   end
 
+  def cantSolicitudes
+    return applications.all.count
+  end
 
 end
