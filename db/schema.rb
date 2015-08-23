@@ -11,14 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150821201607) do
+ActiveRecord::Schema.define(version: 20150822235722) do
 
   create_table "applications", force: :cascade do |t|
     t.integer  "pin_id"
     t.integer  "user_id"
     t.boolean  "reached"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.text     "information"
   end
 
   add_index "applications", ["pin_id"], name: "index_applications_on_pin_id"

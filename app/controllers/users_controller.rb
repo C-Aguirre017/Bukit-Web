@@ -6,9 +6,6 @@ class UsersController < ApplicationController
   skip_authorize_resource :only => [:create,:update]  
   skip_authorize_resource :post, :only => [:create,:update]
   
-  #Avoid Authentification Token
-  #skip_before_action :verify_authenticity_token, :only => [:update, :create]
-
   # GET /users
   # GET /users.json
   def index

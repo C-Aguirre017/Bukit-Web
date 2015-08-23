@@ -3,8 +3,8 @@
   load_and_authorize_resource
 
   #CanCan
-  skip_authorize_resource :only => :create  
-  skip_authorize_resource :post, :only => :create
+  #skip_authorize_resource :only => :create  
+  #skip_authorize_resource :post, :only => :create
 
   # GET /pins
   # GET /pins.json
