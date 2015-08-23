@@ -30,6 +30,7 @@ class ApplicationsController < ApplicationController
   # POST /applications.json
   def create
     @application = Application.new(application_params)
+    @application.reached = false
 
     respond_to do |format|
       if @application.save

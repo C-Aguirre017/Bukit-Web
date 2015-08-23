@@ -27586,3 +27586,854 @@ Migrating to AddInformationToApplications (20150822235722)
             FROM sqlite_temp_master
             WHERE name='index_users_on_authentication_token' AND type='index'
 
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-22 21:55:33 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PageController#index as HTML
+  Rendered page/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 277ms (Views: 269.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/applications" for 127.0.0.1 at 2015-08-22 21:55:49 -0300
+Processing by ApplicationsController#index as HTML
+  [1m[35mApplication Load (0.1ms)[0m  SELECT "applications".* FROM "applications"
+  Rendered applications/index.html.erb within layouts/application (20.5ms)
+Completed 500 Internal Server Error in 93ms (ActiveRecord: 0.9ms)
+
+ActionView::Template::Error (undefined local variable or method `new_application_path' for #<#<Class:0x007f2b01dd1b88>:0x007f2b01dd0d28>):
+    28: 
+    29: <br>
+    30: 
+    31: <%= link_to 'New Application', new_application_path %>
+  app/views/applications/index.html.erb:31:in `_app_views_applications_index_html_erb___809450498424205695_69911345757040'
+
+
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.1ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.9ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (26.6ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/console.js.erb within layouts/javascript (15.5ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/index.html.erb (33.4ms)
+
+
+Started GET "/applications" for 127.0.0.1 at 2015-08-22 21:56:59 -0300
+Processing by ApplicationsController#index as HTML
+  [1m[36mApplication Load (0.1ms)[0m  [1mSELECT "applications".* FROM "applications"[0m
+  Rendered applications/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 73ms (Views: 53.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/applications.json" for 127.0.0.1 at 2015-08-22 21:57:02 -0300
+Processing by ApplicationsController#index as JSON
+  [1m[35mApplication Load (0.2ms)[0m  SELECT "applications".* FROM "applications"
+  Rendered applications/index.json.jbuilder (2.1ms)
+Completed 200 OK in 11ms (Views: 5.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/applications.json" for 127.0.0.1 at 2015-08-22 21:57:08 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1"}}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 9ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/applications.json" for 127.0.0.1 at 2015-08-22 21:57:10 -0300
+Processing by ApplicationsController#index as JSON
+  [1m[36mApplication Load (0.1ms)[0m  [1mSELECT "applications".* FROM "applications"[0m
+  Rendered applications/index.json.jbuilder (0.5ms)
+Completed 200 OK in 8ms (Views: 3.2ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/applications.json" for 127.0.0.1 at 2015-08-22 21:57:26 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 28ms (Views: 0.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/applications.json" for 127.0.0.1 at 2015-08-22 21:57:27 -0300
+Processing by ApplicationsController#index as JSON
+  [1m[35mApplication Load (0.2ms)[0m  SELECT "applications".* FROM "applications"
+  Rendered applications/index.json.jbuilder (0.6ms)
+Completed 200 OK in 7ms (Views: 3.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/applications.json" for 127.0.0.1 at 2015-08-22 21:58:19 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1"}, "user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 135ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/applications.json" for 127.0.0.1 at 2015-08-22 22:01:28 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 41ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/applications.json" for 127.0.0.1 at 2015-08-22 22:01:31 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/applications.json" for 127.0.0.1 at 2015-08-22 22:01:34 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/applications.json" for 127.0.0.1 at 2015-08-22 22:01:37 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 5ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/applications.json" for 127.0.0.1 at 2015-08-22 22:04:05 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 24ms (Views: 0.1ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/applications.json" for 127.0.0.1 at 2015-08-22 22:04:44 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1", "information"=>"\"\"", "reached"=>"false"}}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 7ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/applications.json" for 127.0.0.1 at 2015-08-22 22:05:18 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1", "information"=>"\"\"", "reached"=>"false"}}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 27ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/pins.json" for 127.0.0.1 at 2015-08-22 22:05:54 -0300
+Processing by PinsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1", "information"=>"\"\"", "reached"=>"false"}}
+Completed 400 Bad Request in 5ms (ActiveRecord: 0.0ms)
+
+ActionController::ParameterMissing (param is missing or the value is empty: pin):
+  app/controllers/pins_controller.rb:86:in `pin_params'
+
+
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.9ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (25.4ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/console.js.erb within layouts/javascript (12.6ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/index.html.erb (26.1ms)
+
+
+Started POST "/pins.json" for 127.0.0.1 at 2015-08-22 22:06:31 -0300
+Processing by PinsController#create as JSON
+  Parameters: {"pin"=>{"user_id"=>"1", "title"=>"ola"}}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 531ms (Views: 0.2ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/pins.json" for 127.0.0.1 at 2015-08-22 22:07:25 -0300
+Processing by PinsController#create as JSON
+  Parameters: {"pin"=>{"user_id"=>"1", "title"=>"ola", "course_id"=>"1", "latitude"=>"1", "longitude"=>"1"}}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "pins" ("user_id", "title", "latitude", "longitude", "course_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_id", 1], ["title", "ola"], ["latitude", 1.0], ["longitude", 1.0], ["course_id", 1], ["created_at", "2015-08-23 01:07:25.179232"], ["updated_at", "2015-08-23 01:07:25.179232"]]
+  [1m[36m (274.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 299ms (Views: 0.1ms | ActiveRecord: 275.9ms)
+
+
+Started POST "/pins.json" for 127.0.0.1 at 2015-08-22 22:07:47 -0300
+Processing by PinsController#create as JSON
+  Parameters: {"pin"=>{"user_id"=>"1", "title"=>"ola", "course_id"=>"1", "latitude"=>"1", "longitude"=>"1"}, "user_id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pins" ("user_id", "title", "latitude", "longitude", "course_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user_id", 1], ["title", "ola"], ["latitude", 1.0], ["longitude", 1.0], ["course_id", 1], ["created_at", "2015-08-23 01:07:47.032765"], ["updated_at", "2015-08-23 01:07:47.032765"]]
+  [1m[36m (308.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  Rendered pins/show.json.jbuilder (2.4ms)
+Completed 201 Created in 344ms (Views: 22.2ms | ActiveRecord: 308.9ms)
+
+
+Started POST "/applications.json" for 127.0.0.1 at 2015-08-22 22:10:34 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1", "reached"=>"false", "information"=>"ola"}}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 25ms (Views: 0.1ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/applications.json" for 127.0.0.1 at 2015-08-22 22:10:56 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1", "reached"=>"false", "information"=>"ola"}, "user_id"=>"1", "pin_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 9ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/applications.json" for 127.0.0.1 at 2015-08-22 22:11:03 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1", "information"=>"ola"}, "user_id"=>"1", "pin_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 8ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/applications.json" for 127.0.0.1 at 2015-08-22 22:11:14 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1", "information"=>"ola"}, "user_id"=>"1", "pin_id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "applications" ("pin_id", "user_id", "information", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["pin_id", 1], ["user_id", 1], ["information", "ola"], ["created_at", "2015-08-23 01:11:14.157804"], ["updated_at", "2015-08-23 01:11:14.157804"]]
+  [1m[36m (243.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  Rendered applications/show.json.jbuilder (0.4ms)
+Completed 201 Created in 272ms (Views: 3.7ms | ActiveRecord: 244.9ms)
+
+
+Started POST "/applications.json" for 127.0.0.1 at 2015-08-22 22:11:33 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1", "information"=>"ola"}, "user_id"=>"1", "pin_id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "applications" ("pin_id", "user_id", "information", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["pin_id", 1], ["user_id", 1], ["information", "ola"], ["created_at", "2015-08-23 01:11:33.074635"], ["updated_at", "2015-08-23 01:11:33.074635"]]
+  [1m[36m (282.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  Rendered applications/show.json.jbuilder (0.6ms)
+Completed 201 Created in 317ms (Views: 8.4ms | ActiveRecord: 284.0ms)
+
+
+Started POST "/applications.json" for 127.0.0.1 at 2015-08-22 22:11:51 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1", "information"=>"ola"}}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "applications" ("pin_id", "user_id", "information", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["pin_id", 1], ["user_id", 1], ["information", "ola"], ["created_at", "2015-08-23 01:11:51.652201"], ["updated_at", "2015-08-23 01:11:51.652201"]]
+  [1m[35m (226.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  Rendered applications/show.json.jbuilder (0.2ms)
+Completed 201 Created in 255ms (Views: 3.4ms | ActiveRecord: 227.5ms)
+
+
+Started GET "/applications.json" for 127.0.0.1 at 2015-08-22 22:12:06 -0300
+Processing by ApplicationsController#index as JSON
+  [1m[36mApplication Load (0.2ms)[0m  [1mSELECT "applications".* FROM "applications"[0m
+  Rendered applications/index.json.jbuilder (4.3ms)
+Completed 200 OK in 26ms (Views: 6.7ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/applications.json" for 127.0.0.1 at 2015-08-22 22:12:49 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1", "information"=>"ola"}}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "applications" ("pin_id", "user_id", "information", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["pin_id", 1], ["user_id", 1], ["information", "ola"], ["created_at", "2015-08-23 01:12:49.560038"], ["updated_at", "2015-08-23 01:12:49.560038"]]
+  [1m[35m (229.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  Rendered applications/show.json.jbuilder (0.2ms)
+Completed 201 Created in 257ms (Views: 3.4ms | ActiveRecord: 231.0ms)
+
+
+Started GET "/applications.json" for 127.0.0.1 at 2015-08-22 22:12:53 -0300
+Processing by ApplicationsController#index as JSON
+  [1m[36mApplication Load (0.2ms)[0m  [1mSELECT "applications".* FROM "applications"[0m
+  Rendered applications/index.json.jbuilder (1.0ms)
+Completed 200 OK in 7ms (Views: 3.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/applications.json" for 127.0.0.1 at 2015-08-22 22:12:55 -0300
+Processing by ApplicationsController#index as JSON
+  [1m[35mApplication Load (0.1ms)[0m  SELECT "applications".* FROM "applications"
+  Rendered applications/index.json.jbuilder (0.7ms)
+Completed 200 OK in 8ms (Views: 3.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/applications.json" for 127.0.0.1 at 2015-08-22 22:13:57 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1", "information"=>"ola"}}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "applications" ("pin_id", "user_id", "information", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["pin_id", 1], ["user_id", 1], ["information", "ola"], ["created_at", "2015-08-23 01:13:58.023412"], ["updated_at", "2015-08-23 01:13:58.023412"]]
+  [1m[36m (199.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  Rendered applications/show.json.jbuilder (0.3ms)
+Completed 201 Created in 229ms (Views: 4.3ms | ActiveRecord: 200.6ms)
+
+
+Started GET "/applications.json" for 127.0.0.1 at 2015-08-22 22:14:00 -0300
+Processing by ApplicationsController#index as JSON
+  [1m[35mApplication Load (0.1ms)[0m  SELECT "applications".* FROM "applications"
+  Rendered applications/index.json.jbuilder (0.9ms)
+Completed 200 OK in 7ms (Views: 3.4ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/applications.json" for 127.0.0.1 at 2015-08-22 22:14:26 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1", "information"=>"ola"}}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "applications" ("pin_id", "user_id", "information", "reached", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["pin_id", 1], ["user_id", 1], ["information", "ola"], ["reached", "f"], ["created_at", "2015-08-23 01:14:26.299077"], ["updated_at", "2015-08-23 01:14:26.299077"]]
+  [1m[36m (227.4ms)[0m  [1mcommit transaction[0m
+  Rendered applications/show.json.jbuilder (0.2ms)
+Completed 201 Created in 257ms (Views: 4.0ms | ActiveRecord: 228.6ms)
+
+
+Started POST "/applications.json" for 127.0.0.1 at 2015-08-22 22:14:53 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1", "information"=>"ola"}}
+Redirected to http://localhost:3000/
+Completed 302 Found in 27ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-22 22:14:54 -0300
+Processing by PageController#index as */*
+  Rendered page/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 185ms (Views: 184.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/applications.json" for 127.0.0.1 at 2015-08-22 22:27:43 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1", "information"=>"ola"}}
+Redirected to http://localhost:3000/
+Completed 302 Found in 42ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-22 22:27:43 -0300
+Processing by PageController#index as */*
+  Rendered page/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 72ms (Views: 72.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/applications.json" for 127.0.0.1 at 2015-08-22 22:27:57 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1", "information"=>"ola"}}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "applications" ("pin_id", "user_id", "information", "reached", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["pin_id", 1], ["user_id", 1], ["information", "ola"], ["reached", "f"], ["created_at", "2015-08-23 01:27:57.092968"], ["updated_at", "2015-08-23 01:27:57.092968"]]
+  [1m[35m (245.7ms)[0m  commit transaction
+  Rendered applications/show.json.jbuilder (0.2ms)
+Completed 201 Created in 271ms (Views: 3.7ms | ActiveRecord: 246.6ms)
+
+
+Started POST "/applications.json" for 127.0.0.1 at 2015-08-22 22:32:40 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1", "information"=>"ola"}, "user_token"=>"jbBXLkhuPCNGRdAHL_zm", "user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 23ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-22 22:32:40 -0300
+Processing by PageController#index as */*
+  Rendered page/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 54ms (Views: 54.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/applications.json" for 127.0.0.1 at 2015-08-22 22:32:47 -0300
+Processing by ApplicationsController#index as JSON
+  [1m[35mApplication Load (0.1ms)[0m  SELECT "applications".* FROM "applications"
+  Rendered applications/index.json.jbuilder (0.8ms)
+Completed 200 OK in 7ms (Views: 3.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/applications.json" for 127.0.0.1 at 2015-08-22 22:32:48 -0300
+Processing by ApplicationsController#index as JSON
+  [1m[36mApplication Load (0.2ms)[0m  [1mSELECT "applications".* FROM "applications"[0m
+  Rendered applications/index.json.jbuilder (0.8ms)
+Completed 200 OK in 7ms (Views: 3.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/applications.json" for 127.0.0.1 at 2015-08-22 22:32:48 -0300
+Processing by ApplicationsController#index as JSON
+  [1m[35mApplication Load (0.1ms)[0m  SELECT "applications".* FROM "applications"
+  Rendered applications/index.json.jbuilder (0.7ms)
+Completed 200 OK in 6ms (Views: 3.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/applications.json" for 127.0.0.1 at 2015-08-22 22:32:49 -0300
+Processing by ApplicationsController#index as JSON
+  [1m[36mApplication Load (0.1ms)[0m  [1mSELECT "applications".* FROM "applications"[0m
+  Rendered applications/index.json.jbuilder (0.8ms)
+Completed 200 OK in 6ms (Views: 3.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/applications.json" for 127.0.0.1 at 2015-08-22 22:32:49 -0300
+Processing by ApplicationsController#index as JSON
+  [1m[35mApplication Load (0.1ms)[0m  SELECT "applications".* FROM "applications"
+  Rendered applications/index.json.jbuilder (0.8ms)
+Completed 200 OK in 6ms (Views: 3.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/applications.json" for 127.0.0.1 at 2015-08-22 22:32:49 -0300
+Processing by ApplicationsController#index as JSON
+  [1m[36mApplication Load (0.2ms)[0m  [1mSELECT "applications".* FROM "applications"[0m
+  Rendered applications/index.json.jbuilder (1.0ms)
+Completed 200 OK in 11ms (Views: 6.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/applications.json" for 127.0.0.1 at 2015-08-22 22:32:50 -0300
+Processing by ApplicationsController#index as JSON
+  [1m[35mApplication Load (0.2ms)[0m  SELECT "applications".* FROM "applications"
+  Rendered applications/index.json.jbuilder (0.8ms)
+Completed 200 OK in 7ms (Views: 3.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/applications.json" for 127.0.0.1 at 2015-08-22 22:32:50 -0300
+Processing by ApplicationsController#index as JSON
+  [1m[36mApplication Load (0.2ms)[0m  [1mSELECT "applications".* FROM "applications"[0m
+  Rendered applications/index.json.jbuilder (0.8ms)
+Completed 200 OK in 6ms (Views: 3.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/applications.json" for 127.0.0.1 at 2015-08-22 22:32:53 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1", "information"=>"ola"}, "user_token"=>"jbBXLkhuPCNGRdAHL_zm", "user_id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-22 22:32:53 -0300
+Processing by PageController#index as */*
+  Rendered page/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 48ms (Views: 48.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/applications.json" for 127.0.0.1 at 2015-08-22 22:32:54 -0300
+Processing by ApplicationsController#index as JSON
+  [1m[36mApplication Load (0.1ms)[0m  [1mSELECT "applications".* FROM "applications"[0m
+  Rendered applications/index.json.jbuilder (0.8ms)
+Completed 200 OK in 7ms (Views: 3.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/applications.json" for 127.0.0.1 at 2015-08-22 22:32:55 -0300
+Processing by ApplicationsController#index as JSON
+  [1m[35mApplication Load (0.1ms)[0m  SELECT "applications".* FROM "applications"
+  Rendered applications/index.json.jbuilder (0.8ms)
+Completed 200 OK in 6ms (Views: 3.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/applications.json" for 127.0.0.1 at 2015-08-22 22:32:55 -0300
+Processing by ApplicationsController#index as JSON
+  [1m[36mApplication Load (0.2ms)[0m  [1mSELECT "applications".* FROM "applications"[0m
+  Rendered applications/index.json.jbuilder (0.8ms)
+Completed 200 OK in 7ms (Views: 3.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/applications.json" for 127.0.0.1 at 2015-08-22 22:34:07 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1", "information"=>"ola"}, "user_token"=>"jbBXLkhuPCNGRdAHL_zm", "user_id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-22 22:34:07 -0300
+Processing by PageController#index as */*
+  Rendered page/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 51ms (Views: 50.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/applications.json?user_id=1&user_token=jbBXLkhuPCNGRdAHL_zm" for 127.0.0.1 at 2015-08-22 22:34:37 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1", "information"=>"ola"}, "user_id"=>"1", "user_token"=>"jbBXLkhuPCNGRdAHL_zm"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-22 22:34:37 -0300
+Processing by PageController#index as */*
+  Rendered page/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 48ms (Views: 48.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/applications.json" for 127.0.0.1 at 2015-08-22 22:34:41 -0300
+Processing by ApplicationsController#index as JSON
+  [1m[35mApplication Load (0.2ms)[0m  SELECT "applications".* FROM "applications"
+  Rendered applications/index.json.jbuilder (1.1ms)
+Completed 200 OK in 9ms (Views: 4.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/applications.json" for 127.0.0.1 at 2015-08-22 22:34:42 -0300
+Processing by ApplicationsController#index as JSON
+  [1m[36mApplication Load (0.1ms)[0m  [1mSELECT "applications".* FROM "applications"[0m
+  Rendered applications/index.json.jbuilder (0.8ms)
+Completed 200 OK in 7ms (Views: 3.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/applications.json" for 127.0.0.1 at 2015-08-22 22:34:42 -0300
+Processing by ApplicationsController#index as JSON
+  [1m[35mApplication Load (0.1ms)[0m  SELECT "applications".* FROM "applications"
+  Rendered applications/index.json.jbuilder (0.8ms)
+Completed 200 OK in 6ms (Views: 3.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/applications.json" for 127.0.0.1 at 2015-08-22 22:34:42 -0300
+Processing by ApplicationsController#index as JSON
+  [1m[36mApplication Load (0.1ms)[0m  [1mSELECT "applications".* FROM "applications"[0m
+  Rendered applications/index.json.jbuilder (0.8ms)
+Completed 200 OK in 7ms (Views: 3.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/applications.json" for 127.0.0.1 at 2015-08-22 22:34:43 -0300
+Processing by ApplicationsController#index as JSON
+  [1m[35mApplication Load (0.1ms)[0m  SELECT "applications".* FROM "applications"
+  Rendered applications/index.json.jbuilder (0.8ms)
+Completed 200 OK in 7ms (Views: 3.4ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/applications.json?user_id=1&user_token=jbBXLkhuPCNGRdAHL_zm" for 127.0.0.1 at 2015-08-22 22:35:32 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1", "information"=>"ola"}, "user_id"=>"1", "user_token"=>"jbBXLkhuPCNGRdAHL_zm"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "applications" ("pin_id", "user_id", "information", "reached", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["pin_id", 1], ["user_id", 1], ["information", "ola"], ["reached", "f"], ["created_at", "2015-08-23 01:35:32.837247"], ["updated_at", "2015-08-23 01:35:32.837247"]]
+  [1m[35m (283.8ms)[0m  commit transaction
+  Rendered applications/show.json.jbuilder (0.2ms)
+Completed 201 Created in 316ms (Views: 4.0ms | ActiveRecord: 285.1ms)
+
+
+Started GET "/applications.json" for 127.0.0.1 at 2015-08-22 22:35:40 -0300
+Processing by ApplicationsController#index as JSON
+  [1m[36mApplication Load (0.2ms)[0m  [1mSELECT "applications".* FROM "applications"[0m
+  Rendered applications/index.json.jbuilder (3.8ms)
+Completed 200 OK in 28ms (Views: 6.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/applications.json" for 127.0.0.1 at 2015-08-22 22:35:41 -0300
+Processing by ApplicationsController#index as JSON
+  [1m[35mApplication Load (0.4ms)[0m  SELECT "applications".* FROM "applications"
+  Rendered applications/index.json.jbuilder (1.1ms)
+Completed 200 OK in 7ms (Views: 3.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-22 22:36:18 -0300
+Processing by PageController#index as HTML
+  Rendered page/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 60ms (Views: 59.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/1.json" for 127.0.0.1 at 2015-08-22 22:36:23 -0300
+Processing by UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered users/show.json.jbuilder (0.8ms)
+Completed 200 OK in 9ms (Views: 4.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/applications.json?user_id=1&user_token=jbBXLkhuPCNGRdAHL_zm" for 127.0.0.1 at 2015-08-22 22:37:01 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1", "information"=>"ola"}, "user_id"=>"1", "user_token"=>"jbBXLkhuPCNGRdAHL_zm"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 22ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-22 22:37:01 -0300
+Processing by PageController#index as */*
+  Rendered page/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 52ms (Views: 51.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/applications.json?user_id=1" for 127.0.0.1 at 2015-08-22 22:38:04 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1", "information"=>"ola"}, "user_id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "applications" ("pin_id", "user_id", "information", "reached", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["pin_id", 1], ["user_id", 1], ["information", "ola"], ["reached", "f"], ["created_at", "2015-08-23 01:38:04.742726"], ["updated_at", "2015-08-23 01:38:04.742726"]]
+  [1m[36m (211.9ms)[0m  [1mcommit transaction[0m
+  Rendered applications/show.json.jbuilder (0.2ms)
+Completed 201 Created in 239ms (Views: 3.8ms | ActiveRecord: 213.1ms)
+
+
+Started POST "/applications.json?user_id=1" for 127.0.0.1 at 2015-08-22 22:38:12 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1", "information"=>"ola"}, "user_id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "applications" ("pin_id", "user_id", "information", "reached", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["pin_id", 1], ["user_id", 1], ["information", "ola"], ["reached", "f"], ["created_at", "2015-08-23 01:38:12.794202"], ["updated_at", "2015-08-23 01:38:12.794202"]]
+  [1m[36m (209.8ms)[0m  [1mcommit transaction[0m
+  Rendered applications/show.json.jbuilder (0.3ms)
+Completed 201 Created in 239ms (Views: 5.5ms | ActiveRecord: 211.1ms)
+
+
+Started GET "/applications.json" for 127.0.0.1 at 2015-08-22 22:38:16 -0300
+Processing by ApplicationsController#index as JSON
+  [1m[35mApplication Load (0.2ms)[0m  SELECT "applications".* FROM "applications"
+  Rendered applications/index.json.jbuilder (1.0ms)
+Completed 200 OK in 9ms (Views: 3.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/applications.json?user_id=1" for 127.0.0.1 at 2015-08-22 22:39:55 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1", "information"=>"ola"}, "user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 20ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-22 22:39:55 -0300
+Processing by PageController#index as */*
+  Rendered page/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 65ms (Views: 64.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/applications.json?user_id=1&user_token=jbBXLkhuPCNGRdAHL_zm" for 127.0.0.1 at 2015-08-22 22:40:05 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1", "information"=>"ola"}, "user_id"=>"1", "user_token"=>"jbBXLkhuPCNGRdAHL_zm"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-22 22:40:05 -0300
+Processing by PageController#index as */*
+  Rendered page/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 61ms (Views: 61.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/applications.json?user_id=1&user_token=jbBXLkhuPCNGRdAHL_zm" for 127.0.0.1 at 2015-08-22 22:40:09 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1", "information"=>"ola"}, "user_id"=>"1", "user_token"=>"jbBXLkhuPCNGRdAHL_zm"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-22 22:40:09 -0300
+Processing by PageController#index as */*
+  Rendered page/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 58ms (Views: 58.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/2.json" for 127.0.0.1 at 2015-08-22 22:40:30 -0300
+Processing by UsersController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  Rendered users/show.json.jbuilder (0.7ms)
+Completed 200 OK in 8ms (Views: 3.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/3.json" for 127.0.0.1 at 2015-08-22 22:40:34 -0300
+Processing by UsersController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+Completed 404 Not Found in 5ms (ActiveRecord: 0.1ms)
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=3):
+  activerecord (4.2.1) lib/active_record/core.rb:155:in `find'
+  cancancan (1.12.0) lib/cancan/model_adapters/abstract_adapter.rb:20:in `find'
+  cancancan (1.12.0) lib/cancan/controller_resource.rb:111:in `find_resource'
+  cancancan (1.12.0) lib/cancan/controller_resource.rb:63:in `load_resource_instance'
+  cancancan (1.12.0) lib/cancan/controller_resource.rb:32:in `load_resource'
+  cancancan (1.12.0) lib/cancan/controller_resource.rb:25:in `load_and_authorize_resource'
+  cancancan (1.12.0) lib/cancan/controller_resource.rb:10:in `block in add_before_filter'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:448:in `instance_exec'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:448:in `block in make_lambda'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:164:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:164:in `block in halting'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:504:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:504:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:504:in `each'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:504:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_process_action_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `call'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:186:in `call!'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:164:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.2.0) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/carlos/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/carlos/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/carlos/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (17.9ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/console.js.erb within layouts/javascript (13.1ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/index.html.erb (26.2ms)
+
+
+Started POST "/applications.json?user_id=1&user_token=jbBXLkhuPCNGRdAHL_zm" for 127.0.0.1 at 2015-08-22 22:42:55 -0300
+Processing by ApplicationsController#create as JSON
+  Parameters: {"application"=>{"user_id"=>"1", "pin_id"=>"1", "information"=>"ola"}, "user_id"=>"1", "user_token"=>"jbBXLkhuPCNGRdAHL_zm"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.9ms)
+
+SyntaxError (/home/carlos/Escritorio/Bukit-Web/app/models/ability.rb:46: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/models/ability.rb:46: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (16.5ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/console.js.erb within layouts/javascript (13.9ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/index.html.erb (27.2ms)
+
+
+Started POST "/applications.json" for 127.0.0.1 at 2015-08-22 22:44:13 -0300
+Processing by ApplicationsController#create as JSON
+Completed 400 Bad Request in 3ms (ActiveRecord: 0.0ms)
+
+ActionController::ParameterMissing (param is missing or the value is empty: application):
+  app/controllers/applications_controller.rb:78:in `application_params'
+
+
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.1ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (18.5ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/console.js.erb within layouts/javascript (13.8ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/carlos/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.0/lib/web_console/templates/index.html.erb (26.5ms)

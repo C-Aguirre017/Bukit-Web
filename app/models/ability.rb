@@ -6,6 +6,8 @@ class Ability
     
      user ||= User.new(role: 'nada') # guest user (not logged in)
 
+     if current_user.any? 
+
      if user.role == 'admin'
        can :manage, :all
      end

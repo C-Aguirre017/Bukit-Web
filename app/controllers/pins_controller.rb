@@ -3,8 +3,8 @@ class PinsController < ApplicationController
   load_and_authorize_resource
 
   #CanCan
-  #skip_authorize_resource :only => :create  
-  #skip_authorize_resource :post, :only => :create
+  skip_authorize_resource :only => :create  
+  skip_authorize_resource :post, :only => :create
 
   # GET /pins
   # GET /pins.json
@@ -37,8 +37,8 @@ class PinsController < ApplicationController
   # POST /pins.json
   def create
     @pin = Pin.new(pin_params)
-    @pin.update(pin_params)
-    @pin.user_id = params[:user_id]
+    #@pin.update(pin_params)
+    #@pin.user_id = params[:user_id]
 
     respond_to do |format|
       if @pin.save
