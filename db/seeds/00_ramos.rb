@@ -1,5 +1,6 @@
 # Cursos de la PUC
 puts '[+] Agregando cursos'
+
 # Encontrados 2841 cursos:
 Course.create!(name: "PEDAGOGIA TEATRAL".titleize(), initials: "ACO214E")
 Course.create!(name: "INTRODUCCION A LA DIRECCION".titleize(), initials: "ACO226E")
@@ -18,7 +19,6 @@ Course.create!(name: "PROCESOS Y ARTICULACIONES DE LA PUESTA EN ESCENA".titleize
 Course.create!(name: "ACTUACION I".titleize(), initials: "ACT1221")
 Course.create!(name: "TEORIA CULTURAL DEL DRAMA".titleize(), initials: "ACT1222")
 Course.create!(name: "MOVIMIENTO I".titleize(), initials: "ACT1223")
-=begin
 Course.create!(name: "VOZ I".titleize(), initials: "ACT1224")
 Course.create!(name: "GESTION Y PRODUCCION TEATRAL".titleize(), initials: "ACT1225")
 Course.create!(name: "ACTUACION III".titleize(), initials: "ACT1241")
@@ -2842,4 +2842,3 @@ Course.create!(name: "METODOLOGIA DE LA EDUCACION PARVULARIA".titleize(), initia
 Course.create!(name: "PENSAMIENTO CIENTIFICO DEL NIñO Y SU DIDACTICA".titleize(), initials: "VIP042")
 Course.create!(name: "PENSAMIENTO MATEMATICO DEL NIñO Y SU DIDACTICA".titleize(), initials: "VIP043")
 Course.create!(name: "PRACTICA III (EXPLORATORIA AL MAJOR)".titleize(), initials: "VIP044")
-=end
