@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update, :destroy]
+  before_action :set_user, only: [:edit,:update, :destroy]
   load_and_authorize_resource
 
   #CanCan
   skip_authorize_resource :only => [:create,:update]  
-  skip_authorize_resource :post, :only => [:create,:update]
+  skip_authorize_resource :post, :only => [:create,:update]  
   
   # GET /users
   # GET /users.json
@@ -77,18 +77,19 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    #Verificar Token
-    if authentificate_user_with_token_POST(params[:user_id],params[:user_token])
-  
-      u = University.where(name: params[:user_university])
-      if u.present?
-        @user.university_id = u.id
-      end
 
+    #Verificar Token
+   if Devise.secure_compare(@user.authentication_token, params[:user_token])
       respond_to do |format|
         if @user.update(user_params)
           format.html { redirect_to @user, notice: 'User was successfully updated.' }
           format.json { render :show, status: :ok, location: @user }
+          
+          u = University.where(name: params[:user_university]).first
+          if u.present?
+            @user.university_id = u.id
+          end
+
         else
           format.html { render :edit }
           format.json { render json: @user.errors, status: :unprocessable_entity }
