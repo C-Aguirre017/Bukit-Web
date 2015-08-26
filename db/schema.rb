@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20150822235722) do
   add_index "pins", ["user_id"], name: "index_pins_on_user_id"
 
   create_table "universities", force: :cascade do |t|
-    t.string   "nombre"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

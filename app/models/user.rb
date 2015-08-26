@@ -81,7 +81,7 @@ class User < ActiveRecord::Base
     self.role ||= 'usuario'
     
     #Universidad
-    u = University.where(nombre: 'Sin Informacion').first
+    u = University.where(name: 'Sin Informacion').first
     self.university_id = u.id
 
     nil

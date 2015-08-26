@@ -17,6 +17,7 @@ Course.create!(name: "TEORIA POSTDRAMATICA Y TEATRO CHILENO CONTEMPORANEO".title
 Course.create!(name: "PROCESO Y ARTICULACION DEL TEXTO TEATRAL".titleize(), initials: "ACO3315")
 Course.create!(name: "PROCESOS Y ARTICULACIONES DE LA PUESTA EN ESCENA".titleize(), initials: "ACO3320")
 Course.create!(name: "ACTUACION I".titleize(), initials: "ACT1221")
+=begin
 Course.create!(name: "TEORIA CULTURAL DEL DRAMA".titleize(), initials: "ACT1222")
 Course.create!(name: "MOVIMIENTO I".titleize(), initials: "ACT1223")
 Course.create!(name: "VOZ I".titleize(), initials: "ACT1224")
@@ -2842,4 +2843,4 @@ Course.create!(name: "METODOLOGIA DE LA EDUCACION PARVULARIA".titleize(), initia
 Course.create!(name: "PENSAMIENTO CIENTIFICO DEL NIñO Y SU DIDACTICA".titleize(), initials: "VIP042")
 Course.create!(name: "PENSAMIENTO MATEMATICO DEL NIñO Y SU DIDACTICA".titleize(), initials: "VIP043")
 Course.create!(name: "PRACTICA III (EXPLORATORIA AL MAJOR)".titleize(), initials: "VIP044")
-#=end
+=end

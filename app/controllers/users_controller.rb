@@ -79,7 +79,7 @@ class UsersController < ApplicationController
   def update
     #Verificar Token
     if Devise.secure_compare(@user.authentication_token, params[:user_token])
-      u = University.where(nombre: params[:user_university])
+      u = University.where(name: params[:user_university])
       if u.present?
         @user.university_id = u.id
       end

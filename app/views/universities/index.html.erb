@@ -3,7 +3,7 @@
 <h1>Listing Universities</h1>
 
 <%= table_for @universities, :class => "university_table" do |t| %>
-  <% t.column :nombre %>
+  <% t.column :name %>
   <% t.column :actions, :class => "actions" do |university| %>
     <%= link_to 'Show', university_path(university) %>
   <% end %>
