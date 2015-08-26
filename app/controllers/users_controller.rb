@@ -79,7 +79,7 @@ class UsersController < ApplicationController
   def update
     #Verificar Token
     if Devise.secure_compare(@user.authentication_token, params[:user_token])
-      u = University.where(nombre: user_university)
+      u = University.where(nombre: params[:user_university])
       if u.present?
         @user.university_id = u.id
       end
@@ -93,7 +93,7 @@ class UsersController < ApplicationController
           format.json { render json: @user.errors, status: :unprocessable_entity }
         end
       end
-      
+
     else
         format.html { redirect_to @user, notice: 'Usuario no fue Actualizado - Token Invalido' }
         format.json { render :json => { :errors => 'Token Invalido'}   }
