@@ -78,7 +78,8 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     #Verificar Token
-    if Devise.secure_compare(@user.authentication_token, params[:user_token])
+    if authentificate_user_with_token_POST(params[:user_id],params[:user_token])
+  
       u = University.where(name: params[:user_university])
       if u.present?
         @user.university_id = u.id
@@ -98,6 +99,7 @@ class UsersController < ApplicationController
         format.html { redirect_to @user, notice: 'Usuario no fue Actualizado - Token Invalido' }
         format.json { render :json => { :errors => 'Token Invalido'}   }
     end
+  
   end
 
   # DELETE /users/1
