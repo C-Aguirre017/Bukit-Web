@@ -1,5 +1,6 @@
 # Universidades Chilenas
 puts '[+] Agregando universidades'
+University.create!(nombre:'Sin Informacion')
 University.create!(nombre: 'Universidad de Chile')
 University.create!(nombre: 'Pontificia Universidad Católica de Chile')
 University.create!(nombre: 'Universidad de Concepción')

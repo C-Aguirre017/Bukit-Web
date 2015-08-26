@@ -41,17 +41,19 @@ class PinsController < ApplicationController
   # POST /pins.json
   def create
     @pin = Pin.new(pin_params)
-    #@pin.update(pin_params)
-    #@pin.user_id = params[:user_id]
-
-    respond_to do |format|
-      if @pin.save
-        format.html { redirect_to @pin, notice: 'Pin was successfully created.' }
-        format.json { render :show, status: :created, location: @pin }
-      else
-        format.html { render :new }
-        format.json { render json: @pin.errors, status: :unprocessable_entity }
-      end
+    
+    if authentificate_user_with_token_POST(params[:pin][:user_id],params[:user_token])
+      respond_to do |format|
+        if @pin.save
+          format.html { redirect_to @pin, notice: 'Pin was successfully created.' }
+          format.json { render :show, status: :created, location: @pin }
+        else
+          format.html { render :new }
+          format.json { render json: @pin.errors, status: :unprocessable_entity }
+        end
+      end  
+    else
+      render :json => { :errors => 'Información Incorrecta Enviada'}
     end
   end
 

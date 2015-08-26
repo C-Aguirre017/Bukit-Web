@@ -37,8 +37,7 @@ class ApplicationsController < ApplicationController
     @application.reached = false
 
     pin = Pin.find(params[:application][:pin_id])
-
-    if pin.present?  
+    if pin.present? && authentificate_user_with_token_POST(params[:application][:user_id],params[:user_token]) 
       if not pin.existeSolicitud?(params[:application][:user_id])
         respond_to do |format|
           if @application.save
@@ -53,7 +52,7 @@ class ApplicationsController < ApplicationController
         render :json => { :errors => 'Ya enviaste una solicitud'}
       end
     else
-      render :json => { :errors => 'No existe el Pin'}
+      render :json => { :errors => 'No existe el Pin o Información Incorrecta'}
     end
   end
 

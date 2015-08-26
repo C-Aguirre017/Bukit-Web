@@ -2842,3 +2842,4 @@ Course.create!(name: "METODOLOGIA DE LA EDUCACION PARVULARIA".titleize(), initia
 Course.create!(name: "PENSAMIENTO CIENTIFICO DEL NIñO Y SU DIDACTICA".titleize(), initials: "VIP042")
 Course.create!(name: "PENSAMIENTO MATEMATICO DEL NIñO Y SU DIDACTICA".titleize(), initials: "VIP043")
 Course.create!(name: "PRACTICA III (EXPLORATORIA AL MAJOR)".titleize(), initials: "VIP044")
+#=end

@@ -79,6 +79,11 @@ class User < ActiveRecord::Base
 
    def default_values
     self.role ||= 'usuario'
+    
+    #Universidad
+    u = University.where(nombre: 'Sin Informacion').first
+    self.university_id = u.id
+
     nil
   end
 

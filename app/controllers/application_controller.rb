@@ -43,6 +43,20 @@ class ApplicationController < ActionController::Base
        # format.json {  render :status => 401, :json => { :message => 'No estas Ingresado' } }
       #end
     #end
-end
+  end
+
+  def authentificate_user_with_token_POST(id,token)
+    user_id = id.presence
+    user    = user_id && User.find(user_id)
+    if user
+      if Devise.secure_compare(user.authentication_token, token)
+        return true
+      else
+        return false
+      end
+    else
+      return false
+    end
+  end
 
 end
