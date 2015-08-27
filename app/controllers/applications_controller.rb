@@ -2,10 +2,6 @@ class ApplicationsController < ApplicationController
   before_action :set_application, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
-    #CanCan
-  skip_authorize_resource :only => :create  
-  skip_authorize_resource :post, :only => :create
-
   # GET /applications
   # GET /applications.json
   def index
@@ -37,7 +33,7 @@ class ApplicationsController < ApplicationController
     @application.reached = false
 
     pin = Pin.find(params[:application][:pin_id])
-    if pin.present? && authentificate_user_with_token_POST(params[:application][:user_id],params[:user_token]) 
+    if pin.present? && params[:application][:user_id] == params[:user_id]
       if not pin.existeSolicitud?(params[:application][:user_id])
         respond_to do |format|
           if @application.save

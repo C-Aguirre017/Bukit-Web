@@ -36,13 +36,6 @@ class ApplicationController < ActionController::Base
         flash[:error] = 'Token de autentificacion invalido'
       end
     end
-
-    #if not user_signed_in?
-     # respond_to do |format|
-      #  format.html {}
-       # format.json {  render :status => 401, :json => { :message => 'No estas Ingresado' } }
-      #end
-    #end
   end
 
   def authentificate_user_with_token_POST(id,token)

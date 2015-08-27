@@ -2,10 +2,6 @@ class PinsController < ApplicationController
   before_action :set_pin, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
-  #CanCan
-  skip_authorize_resource :only => :create  
-  skip_authorize_resource :post, :only => :create
-
   # GET /pins
   # GET /pins.json
   def index
@@ -42,19 +38,16 @@ class PinsController < ApplicationController
   def create
     @pin = Pin.new(pin_params)
     
-    if authentificate_user_with_token_POST(params[:pin][:user_id],params[:user_token])
-      respond_to do |format|
-        if @pin.save
-          format.html { redirect_to @pin, notice: 'Pin was successfully created.' }
-          format.json { render :show, status: :created, location: @pin }
-        else
-          format.html { render :new }
-          format.json { render json: @pin.errors, status: :unprocessable_entity }
-        end
-      end  
-    else
-      render :json => { :errors => 'Información Incorrecta Enviada'}
-    end
+    respond_to do |format|
+      if @pin.save
+        format.html { redirect_to @pin, notice: 'Pin was successfully created.' }
+        format.json { render :show, status: :created, location: @pin }
+      else
+        format.html { render :new }
+        format.json { render json: @pin.errors, status: :unprocessable_entity }
+      end
+    end  
+
   end
 
   # PATCH/PUT /pins/1
